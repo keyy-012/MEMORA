@@ -30,21 +30,20 @@
     button,a{font:inherit}
 
     /* The approved background master lives here and is rendered as a visual layer. */
-.background-master{
-  position:fixed;
-  inset:0;
-  width:100%;
-  height:100%;
-  z-index:0;
-  pointer-events:none;
-
-  background:
-    linear-gradient(
-      rgba(5,1,10,.18),
-      rgba(5,1,10,.30)
-    ),
-    url("memora-waterfall.png") center center / cover no-repeat;
-}
+<div class="background-master">
+  <video
+    class="background-video"
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="auto"
+    poster="memora-waterfall.png"
+    aria-hidden="true"
+  >
+    <source src="memora-waterfall.mp4" type="video/mp4">
+  </video>
+</div>
 
 
     .veil{
