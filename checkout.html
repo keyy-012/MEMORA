@@ -1,1 +1,1353 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
 
+  <title>ชำระเงิน | Memora</title>
+
+  <meta
+    name="description"
+    content="ชำระเงินสำหรับของขวัญดิจิทัลจาก Memora"
+  >
+
+  <meta name="theme-color" content="#09030f">
+
+  <style>
+
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500&family=Great+Vibes&family=Noto+Sans+Thai:wght@300;400;500;600&display=swap');
+
+    :root{
+      --bg:#09030f;
+      --white:#fff7fc;
+      --soft:rgba(255,247,252,.66);
+      --line:rgba(255,255,255,.13);
+      --pink:#ff78b7;
+      --pink-light:#ffc2df;
+      --purple:#a45ce1;
+      --glass:rgba(16,6,25,.58);
+      --danger:#ff8eac;
+    }
+
+    *{
+      box-sizing:border-box;
+    }
+
+    html,
+    body{
+      margin:0;
+      min-height:100%;
+      background:var(--bg);
+      color:var(--white);
+    }
+
+    body{
+      font-family:"DM Sans",sans-serif;
+      -webkit-font-smoothing:antialiased;
+      overflow-x:hidden;
+    }
+
+    button,
+    input{
+      font:inherit;
+    }
+
+
+    /* =========================
+       BACKGROUND
+       ========================= */
+
+    .background{
+      position:fixed;
+      inset:0;
+      z-index:0;
+      pointer-events:none;
+
+      background:
+        radial-gradient(
+          circle at 18% 15%,
+          rgba(159,63,214,.19),
+          transparent 32%
+        ),
+        radial-gradient(
+          circle at 84% 38%,
+          rgba(255,91,168,.15),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 50% 92%,
+          rgba(105,42,156,.12),
+          transparent 38%
+        ),
+        linear-gradient(
+          150deg,
+          #0c0415,
+          #07020d 48%,
+          #0b0313
+        );
+    }
+
+    .background::after{
+      content:"";
+      position:absolute;
+      inset:0;
+
+      background:
+        radial-gradient(
+          ellipse at center,
+          transparent 30%,
+          rgba(3,0,8,.38) 100%
+        );
+    }
+
+
+    /* =========================
+       HEADER
+       ========================= */
+
+    .topbar{
+      position:relative;
+      z-index:20;
+
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+
+      padding:22px clamp(18px,5vw,70px);
+    }
+
+    .brand{
+      font-family:"Great Vibes",cursive;
+      font-size:38px;
+
+      color:#fff;
+      text-decoration:none;
+
+      text-shadow:
+        0 0 22px rgba(255,120,183,.35);
+    }
+
+    .back{
+      height:44px;
+      padding:0 17px;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      border:1px solid var(--line);
+      border-radius:999px;
+
+      background:rgba(10,3,17,.38);
+
+      backdrop-filter:blur(14px);
+      -webkit-backdrop-filter:blur(14px);
+
+      color:#fff;
+
+      text-decoration:none;
+
+      font-size:11px;
+      letter-spacing:.08em;
+
+      transition:.3s ease;
+    }
+
+    .back:hover{
+      background:rgba(255,255,255,.08);
+    }
+
+
+    /* =========================
+       PAGE
+       ========================= */
+
+    .page{
+      position:relative;
+      z-index:5;
+
+      width:min(1120px,calc(100% - 36px));
+
+      margin:0 auto;
+
+      padding:
+        50px
+        0
+        100px;
+    }
+
+
+    /* =========================
+       HEADING
+       ========================= */
+
+    .intro{
+      max-width:700px;
+
+      margin:0 auto 50px;
+
+      text-align:center;
+    }
+
+    .eyebrow{
+      margin-bottom:16px;
+
+      color:rgba(255,194,224,.68);
+
+      font-size:9px;
+      letter-spacing:.34em;
+
+      text-transform:uppercase;
+    }
+
+    .intro h1{
+      margin:0;
+
+      font-family:"Cormorant Garamond",serif;
+
+      font-size:clamp(44px,6vw,70px);
+      font-weight:500;
+
+      line-height:1.05;
+    }
+
+    html[lang="th"] .intro h1{
+      font-family:"Noto Sans Thai",sans-serif;
+
+      font-size:clamp(33px,5vw,54px);
+      font-weight:400;
+
+      line-height:1.35;
+    }
+
+    .intro p{
+      max-width:520px;
+
+      margin:18px auto 0;
+
+      color:var(--soft);
+
+      font-size:13px;
+      line-height:1.9;
+    }
+
+    html[lang="th"] .intro p{
+      font-family:"Noto Sans Thai",sans-serif;
+    }
+
+
+    /* =========================
+       CHECKOUT
+       ========================= */
+
+    .checkout{
+      display:grid;
+
+      grid-template-columns:
+        .88fr
+        1.12fr;
+
+      gap:22px;
+
+      align-items:start;
+    }
+
+    .card{
+      border:1px solid var(--line);
+
+      border-radius:32px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.072),
+          rgba(255,255,255,.025)
+        );
+
+      backdrop-filter:blur(18px);
+      -webkit-backdrop-filter:blur(18px);
+
+      box-shadow:
+        0 30px 90px rgba(0,0,0,.25);
+    }
+
+
+    /* =========================
+       ORDER SUMMARY
+       ========================= */
+
+    .summary{
+      padding:34px;
+
+      position:sticky;
+      top:25px;
+    }
+
+    .summary-label{
+      color:var(--pink-light);
+
+      font-size:9px;
+      letter-spacing:.27em;
+
+      text-transform:uppercase;
+
+      opacity:.74;
+    }
+
+    .product-name{
+      margin:22px 0 0;
+
+      font-family:"Cormorant Garamond",serif;
+
+      font-size:45px;
+      font-weight:500;
+
+      line-height:1;
+    }
+
+    .product-type{
+      margin-top:8px;
+
+      font-family:"Cormorant Garamond",serif;
+
+      font-size:18px;
+
+      color:rgba(255,206,230,.66);
+    }
+
+    .summary-line{
+      height:1px;
+
+      margin:27px 0;
+
+      background:rgba(255,255,255,.09);
+    }
+
+    .price-row{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+
+      gap:20px;
+    }
+
+    .price-label{
+      color:rgba(255,255,255,.46);
+
+      font-size:11px;
+    }
+
+    .price{
+      font-family:"Cormorant Garamond",serif;
+
+      font-size:38px;
+      font-weight:500;
+    }
+
+    .included{
+      margin-top:28px;
+    }
+
+    .included-title{
+      margin-bottom:14px;
+
+      font-size:10px;
+      letter-spacing:.15em;
+
+      color:rgba(255,255,255,.5);
+    }
+
+    .included ul{
+      margin:0;
+      padding:0;
+
+      list-style:none;
+
+      display:grid;
+      gap:11px;
+    }
+
+    .included li{
+      display:flex;
+      align-items:center;
+      gap:10px;
+
+      color:rgba(255,255,255,.63);
+
+      font-size:12px;
+    }
+
+    .included li::before{
+      content:"♡";
+
+      color:var(--pink);
+    }
+
+
+    /* =========================
+       PAYMENT
+       ========================= */
+
+    .payment{
+      padding:
+        clamp(28px,4vw,48px);
+    }
+
+    .section-number{
+      margin-bottom:10px;
+
+      color:var(--pink-light);
+
+      font-size:9px;
+      letter-spacing:.25em;
+    }
+
+    .section-title{
+      margin:0;
+
+      font-family:"Cormorant Garamond",serif;
+
+      font-size:33px;
+      font-weight:500;
+    }
+
+    html[lang="th"] .section-title{
+      font-family:"Noto Sans Thai",sans-serif;
+
+      font-size:25px;
+      font-weight:400;
+    }
+
+    .section-description{
+      margin:9px 0 0;
+
+      color:var(--soft);
+
+      font-size:12px;
+      line-height:1.8;
+    }
+
+    html[lang="th"] .section-description{
+      font-family:"Noto Sans Thai",sans-serif;
+    }
+
+
+    /* =========================
+       QR
+       ========================= */
+
+    .qr-wrap{
+      margin:28px auto 0;
+
+      width:min(300px,100%);
+
+      padding:17px;
+
+      border-radius:28px;
+
+      background:#fff;
+
+      box-shadow:
+        0 22px 70px rgba(0,0,0,.24),
+        0 0 50px rgba(255,100,175,.09);
+    }
+
+    .qr-wrap img{
+      display:block;
+
+      width:100%;
+      aspect-ratio:1;
+
+      object-fit:contain;
+
+      border-radius:15px;
+    }
+
+    .qr-fallback{
+      width:100%;
+      aspect-ratio:1;
+
+      border-radius:15px;
+
+      display:none;
+      align-items:center;
+      justify-content:center;
+
+      text-align:center;
+
+      padding:25px;
+
+      background:#f6eef3;
+      color:#281621;
+
+      font-size:12px;
+      line-height:1.6;
+    }
+
+    .amount{
+      margin-top:20px;
+
+      text-align:center;
+    }
+
+    .amount small{
+      display:block;
+
+      color:rgba(255,255,255,.42);
+
+      font-size:9px;
+      letter-spacing:.15em;
+
+      text-transform:uppercase;
+    }
+
+    .amount strong{
+      display:block;
+
+      margin-top:2px;
+
+      font-family:"Cormorant Garamond",serif;
+
+      font-size:36px;
+      font-weight:500;
+    }
+
+
+    /* =========================
+       FORM
+       ========================= */
+
+    .divider{
+      height:1px;
+
+      margin:38px 0;
+
+      background:rgba(255,255,255,.09);
+    }
+
+    .field{
+      margin-top:22px;
+    }
+
+    .field-label{
+      display:block;
+
+      margin-bottom:9px;
+
+      color:rgba(255,255,255,.68);
+
+      font-size:11px;
+    }
+
+    html[lang="th"] .field-label{
+      font-family:"Noto Sans Thai",sans-serif;
+    }
+
+    .email-input{
+      width:100%;
+      height:54px;
+
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:16px;
+
+      outline:none;
+
+      padding:0 17px;
+
+      background:rgba(255,255,255,.045);
+
+      color:#fff;
+
+      transition:
+        border-color .25s ease,
+        background .25s ease,
+        box-shadow .25s ease;
+    }
+
+    .email-input::placeholder{
+      color:rgba(255,255,255,.28);
+    }
+
+    .email-input:focus{
+      border-color:rgba(255,141,195,.46);
+
+      background:rgba(255,255,255,.06);
+
+      box-shadow:
+        0 0 0 4px rgba(255,110,180,.05);
+    }
+
+
+    /* =========================
+       SLIP UPLOAD
+       ========================= */
+
+    .upload{
+      position:relative;
+
+      min-height:190px;
+
+      border:1px dashed rgba(255,192,222,.28);
+
+      border-radius:22px;
+
+      overflow:hidden;
+
+      cursor:pointer;
+
+      background:rgba(255,255,255,.025);
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      transition:.3s ease;
+    }
+
+    .upload:hover{
+      border-color:rgba(255,192,222,.5);
+
+      background:rgba(255,255,255,.04);
+    }
+
+    .upload input{
+      position:absolute;
+      inset:0;
+
+      width:100%;
+      height:100%;
+
+      opacity:0;
+
+      cursor:pointer;
+    }
+
+    .upload-content{
+      padding:30px;
+
+      text-align:center;
+
+      pointer-events:none;
+    }
+
+    .upload-icon{
+      width:48px;
+      height:48px;
+
+      margin:0 auto 13px;
+
+      border-radius:50%;
+
+      display:grid;
+      place-items:center;
+
+      border:1px solid rgba(255,255,255,.11);
+
+      background:rgba(255,255,255,.04);
+
+      color:var(--pink-light);
+
+      font-size:20px;
+    }
+
+    .upload-title{
+      font-size:12px;
+
+      color:rgba(255,255,255,.78);
+    }
+
+    .upload-note{
+      margin-top:6px;
+
+      font-size:10px;
+
+      color:rgba(255,255,255,.38);
+    }
+
+    .slip-preview{
+      display:none;
+
+      width:100%;
+      max-height:420px;
+
+      object-fit:contain;
+
+      background:rgba(0,0,0,.16);
+    }
+
+    .upload.has-image .upload-content{
+      display:none;
+    }
+
+    .upload.has-image .slip-preview{
+      display:block;
+    }
+
+
+    /* =========================
+       SUBMIT
+       ========================= */
+
+    .notice{
+      margin-top:20px;
+
+      padding:15px 17px;
+
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:16px;
+
+      background:rgba(255,255,255,.025);
+
+      color:rgba(255,255,255,.48);
+
+      font-size:10px;
+      line-height:1.7;
+    }
+
+    html[lang="th"] .notice{
+      font-family:"Noto Sans Thai",sans-serif;
+    }
+
+    .submit{
+      width:100%;
+
+      margin-top:20px;
+
+      border:1px solid rgba(255,190,220,.42);
+
+      border-radius:999px;
+
+      padding:16px 24px;
+
+      color:#fff;
+
+      cursor:pointer;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255,108,181,.31),
+          rgba(154,72,220,.23)
+        );
+
+      font-size:11px;
+      letter-spacing:.1em;
+
+      transition:
+        transform .3s ease,
+        box-shadow .3s ease,
+        opacity .3s ease;
+    }
+
+    .submit:hover{
+      transform:translateY(-2px);
+
+      box-shadow:
+        0 18px 50px rgba(255,91,168,.14);
+    }
+
+    .submit:disabled{
+      opacity:.42;
+
+      cursor:not-allowed;
+
+      transform:none;
+      box-shadow:none;
+    }
+
+    html[lang="th"] .submit{
+      font-family:"Noto Sans Thai",sans-serif;
+    }
+
+    .error{
+      display:none;
+
+      margin-top:12px;
+
+      text-align:center;
+
+      color:var(--danger);
+
+      font-size:11px;
+    }
+
+
+    /* =========================
+       MOBILE
+       ========================= */
+
+    @media(max-width:800px){
+
+      .topbar{
+        padding:18px;
+      }
+
+      .brand{
+        font-size:32px;
+      }
+
+      .page{
+        width:min(100% - 28px,1120px);
+
+        padding-top:35px;
+      }
+
+      .checkout{
+        grid-template-columns:1fr;
+      }
+
+      .summary{
+        position:relative;
+        top:auto;
+      }
+
+      .payment{
+        padding:28px 22px 32px;
+      }
+    }
+
+
+    @media(prefers-reduced-motion:reduce){
+
+      *,
+      *::before,
+      *::after{
+        animation-duration:.001ms!important;
+        animation-iteration-count:1!important;
+        transition-duration:.001ms!important;
+      }
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+  <div class="background"></div>
+
+
+  <header class="topbar">
+
+    <a
+      href="index.html"
+      class="brand"
+    >
+      Memora
+    </a>
+
+    <a
+      href="products.html"
+      class="back"
+    >
+      ← เลือกของขวัญ
+    </a>
+
+  </header>
+
+
+  <main class="page">
+
+
+    <section class="intro">
+
+      <div class="eyebrow">
+        MEMORA • CHECKOUT
+      </div>
+
+      <h1>
+        ของขวัญของคุณเกือบพร้อมแล้ว
+      </h1>
+
+      <p>
+        ชำระเงิน แนบหลักฐาน และระบุอีเมลที่ต้องการรับลิงก์สำหรับสร้างของขวัญ
+      </p>
+
+    </section>
+
+
+    <section class="checkout">
+
+
+      <!-- ORDER SUMMARY -->
+
+      <aside class="summary card">
+
+        <div class="summary-label">
+          YOUR GIFT
+        </div>
+
+        <h2
+          class="product-name"
+          id="productName"
+        >
+          Our Story
+        </h2>
+
+        <div
+          class="product-type"
+          id="productType"
+        >
+          Anniversary Website
+        </div>
+
+        <div class="summary-line"></div>
+
+
+        <div class="price-row">
+
+          <div class="price-label">
+            Total
+          </div>
+
+          <div
+            class="price"
+            id="productPrice"
+          >
+            ฿259
+          </div>
+
+        </div>
+
+
+        <div class="included">
+
+          <div class="included-title">
+            INCLUDED
+          </div>
+
+          <ul>
+
+            <li>6 Memories</li>
+
+            <li>Love Letter</li>
+
+            <li>Music</li>
+
+            <li>Questions</li>
+
+            <li>Private Link</li>
+
+          </ul>
+
+        </div>
+
+      </aside>
+
+
+      <!-- PAYMENT -->
+
+      <div class="payment card">
+
+
+        <!-- STEP 1 -->
+
+        <div class="section-number">
+          STEP 01
+        </div>
+
+        <h2 class="section-title">
+          ชำระเงินผ่าน QR Code
+        </h2>
+
+        <p class="section-description">
+          สแกน QR Code ด้านล่างและชำระตามยอดที่แสดง
+        </p>
+
+
+        <div class="qr-wrap">
+
+          <img
+            id="qrImage"
+            src="payment-qr.png"
+            alt="Memora payment QR code"
+          >
+
+          <div
+            class="qr-fallback"
+            id="qrFallback"
+          >
+            QR Code จะปรากฏตรงนี้
+          </div>
+
+        </div>
+
+
+        <div class="amount">
+
+          <small>
+            PAYMENT AMOUNT
+          </small>
+
+          <strong>
+            ฿259
+          </strong>
+
+        </div>
+
+
+        <div class="divider"></div>
+
+
+        <!-- STEP 2 -->
+
+        <div class="section-number">
+          STEP 02
+        </div>
+
+        <h2 class="section-title">
+          แนบสลิปการชำระเงิน
+        </h2>
+
+        <p class="section-description">
+          อัปโหลดภาพสลิปหลังจากชำระเงินเรียบร้อยแล้ว
+        </p>
+
+
+        <div class="field">
+
+          <label
+            class="upload"
+            id="uploadBox"
+          >
+
+            <input
+              type="file"
+              id="slipInput"
+              accept="image/jpeg,image/png,image/webp"
+            >
+
+            <div class="upload-content">
+
+              <div class="upload-icon">
+                ↑
+              </div>
+
+              <div class="upload-title">
+                เลือกรูปสลิป
+              </div>
+
+              <div class="upload-note">
+                JPG, PNG หรือ WEBP
+              </div>
+
+            </div>
+
+            <img
+              class="slip-preview"
+              id="slipPreview"
+              alt="Payment slip preview"
+            >
+
+          </label>
+
+        </div>
+
+
+        <div class="divider"></div>
+
+
+        <!-- STEP 3 -->
+
+        <div class="section-number">
+          STEP 03
+        </div>
+
+        <h2 class="section-title">
+          อีเมลสำหรับรับลิงก์
+        </h2>
+
+        <p class="section-description">
+          หลังจากตรวจสอบการชำระเงินแล้ว เราจะส่งลิงก์สำหรับสร้างของขวัญไปยังอีเมลนี้
+        </p>
+
+
+        <div class="field">
+
+          <label
+            class="field-label"
+            for="email"
+          >
+            Email
+          </label>
+
+          <input
+            class="email-input"
+            id="email"
+            type="email"
+            placeholder="your@email.com"
+            autocomplete="email"
+          >
+
+        </div>
+
+
+        <div class="notice">
+          กรุณาตรวจสอบอีเมลให้ถูกต้องก่อนส่งข้อมูล เนื่องจากลิงก์สำหรับสร้างของขวัญจะถูกส่งไปยังอีเมลที่ระบุ
+        </div>
+
+
+        <button
+          class="submit"
+          id="submitOrder"
+          type="button"
+        >
+          ส่งหลักฐานการชำระเงิน
+        </button>
+
+
+        <div
+          class="error"
+          id="errorMessage"
+        ></div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <script>
+
+    "use strict";
+
+
+    /* =========================
+       PRODUCTS
+       ========================= */
+
+    const products = {
+
+      "our-story":{
+        name:"Our Story",
+        type:"Anniversary Website",
+        price:259
+      }
+
+    };
+
+
+    const params =
+      new URLSearchParams(
+        window.location.search
+      );
+
+
+    const productId =
+      params.get("product") ||
+      "our-story";
+
+
+    const product =
+      products[productId] ||
+      products["our-story"];
+
+
+    document.getElementById(
+      "productName"
+    ).textContent =
+      product.name;
+
+
+    document.getElementById(
+      "productType"
+    ).textContent =
+      product.type;
+
+
+    document.getElementById(
+      "productPrice"
+    ).textContent =
+      "฿" + product.price;
+
+
+    /* =========================
+       QR FALLBACK
+       ========================= */
+
+    const qrImage =
+      document.getElementById(
+        "qrImage"
+      );
+
+
+    const qrFallback =
+      document.getElementById(
+        "qrFallback"
+      );
+
+
+    qrImage.addEventListener(
+      "error",
+      ()=>{
+
+        qrImage.style.display =
+          "none";
+
+        qrFallback.style.display =
+          "flex";
+
+      }
+    );
+
+
+    /* =========================
+       SLIP PREVIEW
+       ========================= */
+
+    const slipInput =
+      document.getElementById(
+        "slipInput"
+      );
+
+
+    const slipPreview =
+      document.getElementById(
+        "slipPreview"
+      );
+
+
+    const uploadBox =
+      document.getElementById(
+        "uploadBox"
+      );
+
+
+    slipInput.addEventListener(
+      "change",
+      ()=>{
+
+        const file =
+          slipInput.files[0];
+
+
+        if(!file){
+          return;
+        }
+
+
+        const reader =
+          new FileReader();
+
+
+        reader.onload =
+          e=>{
+
+            slipPreview.src =
+              e.target.result;
+
+
+            uploadBox.classList.add(
+              "has-image"
+            );
+
+          };
+
+
+        reader.readAsDataURL(file);
+
+      }
+    );
+
+
+    /* =========================
+       VALIDATION
+       ========================= */
+
+    const emailInput =
+      document.getElementById(
+        "email"
+      );
+
+
+    const submitOrder =
+      document.getElementById(
+        "submitOrder"
+      );
+
+
+    const errorMessage =
+      document.getElementById(
+        "errorMessage"
+      );
+
+
+    function showError(message){
+
+      errorMessage.textContent =
+        message;
+
+      errorMessage.style.display =
+        "block";
+
+    }
+
+
+    submitOrder.addEventListener(
+      "click",
+      ()=>{
+
+        errorMessage.style.display =
+          "none";
+
+
+        const slip =
+          slipInput.files[0];
+
+
+        const email =
+          emailInput.value
+            .trim();
+
+
+        if(!slip){
+
+          showError(
+            "กรุณาแนบสลิปการชำระเงิน"
+          );
+
+          return;
+        }
+
+
+        if(!email){
+
+          showError(
+            "กรุณากรอกอีเมลสำหรับรับลิงก์"
+          );
+
+          return;
+        }
+
+
+        if(
+          !emailInput.checkValidity()
+        ){
+
+          showError(
+            "รูปแบบอีเมลไม่ถูกต้อง"
+          );
+
+          return;
+        }
+
+
+        /*
+          NEXT STEP:
+          ส่ง productId + email + slip
+          เข้า Supabase
+        */
+
+
+        showError(
+          "หน้า Checkout พร้อมแล้ว — ขั้นต่อไปเราจะเชื่อมระบบรับคำสั่งซื้อ"
+        );
+
+      }
+    );
+
+  </script>
+
+</body>
+</html>
