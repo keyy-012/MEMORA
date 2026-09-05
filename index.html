@@ -3,12 +3,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Memora — digital gifts made from memories.">
+  <meta name="description" content="Memora สร้างของขวัญดิจิทัลสำหรับวันครบรอบ วันเกิด และคนพิเศษ เปลี่ยนความทรงจำให้เป็นของขวัญออนไลน์ที่มีเพียงหนึ่งเดียว">
   <meta name="theme-color" content="#0a0412">
-  <title>Memora — Digital Gifts</title>
+  <title>Memora | ของขวัญดิจิทัลสำหรับวันครบรอบและคนพิเศษ</title>
+  <meta name="keywords" content="ของขวัญดิจิทัล, ของขวัญวันครบรอบ, ของขวัญให้แฟน, ของขวัญออนไลน์, digital gifts, anniversary gift">
+  <meta property="og:title" content="Memora | Digital Gifts Made From Memories">
+  <meta property="og:description" content="เปลี่ยนความทรงจำให้กลายเป็นของขวัญดิจิทัลที่มีเพียงหนึ่งเดียว">
+  <meta property="og:type" content="website">
 
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500&family=Great+Vibes&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500&family=Great+Vibes&family=Noto+Sans+Thai:wght@300;400;500;600&display=swap');
 
     :root{
       --bg:#09030f;
@@ -36,14 +40,39 @@
       pointer-events:none;
     }
 
+
     .veil{
       position:fixed;
       inset:0;
       z-index:1;
       pointer-events:none;
       background:
-        linear-gradient(to bottom,rgba(7,2,12,.16),transparent 32%,transparent 65%,rgba(7,2,12,.34)),
-        radial-gradient(circle at 50% 46%,transparent 28%,rgba(5,1,10,.38) 100%);
+        radial-gradient(circle at 50% 46%, rgba(9,3,15,.74) 0 10%, rgba(9,3,15,.45) 22%, transparent 44%),
+        radial-gradient(circle at 15% 18%, rgba(148,56,204,.15), transparent 34%),
+        radial-gradient(circle at 84% 78%, rgba(255,96,170,.13), transparent 32%),
+        linear-gradient(to bottom, rgba(5,1,10,.36), rgba(5,1,10,.08) 35%, rgba(5,1,10,.12) 62%, rgba(5,1,10,.62));
+    }
+
+    .veil::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(ellipse at center, transparent 35%, rgba(3,0,8,.48) 76%, rgba(3,0,8,.78) 100%);
+      mix-blend-mode:multiply;
+    }
+
+    .veil::after{
+      content:"";
+      position:absolute;
+      left:50%;
+      top:46%;
+      width:min(620px,72vw);
+      height:min(250px,32vw);
+      transform:translate(-50%,-50%);
+      border-radius:50%;
+      background:radial-gradient(ellipse at center, rgba(255,112,183,.10), rgba(152,69,219,.05) 42%, transparent 72%);
+      filter:blur(28px);
     }
 
     .topbar{
@@ -127,7 +156,7 @@
     }
 
     .hero-inner{
-      width:min(760px,92vw);
+      width:min(820px,92vw);
       pointer-events:auto;
       transform:translateY(18px);
       opacity:0;
@@ -150,8 +179,8 @@
       line-height:.78;
       letter-spacing:.01em;
       text-shadow:
-        0 0 12px rgba(255,120,183,.55),
-        0 0 40px rgba(255,120,183,.25),
+        0 0 14px rgba(255,120,183,.48),
+        0 0 46px rgba(255,120,183,.20),
         0 18px 60px rgba(0,0,0,.45);
     }
 
@@ -166,7 +195,7 @@
     }
 
     .description{
-      max-width:570px;
+      max-width:620px;
       margin:27px auto 0;
       font-family:"DM Sans",sans-serif;
       font-weight:300;
@@ -175,14 +204,50 @@
       color:var(--soft);
     }
 
+    html[lang="th"] .hero-title,
+    html[lang="th"] .description,
+    html[lang="th"] .cta{
+      font-family:"Noto Sans Thai",sans-serif;
+    }
+
+    .hero-title{
+      margin:30px auto 0;
+      max-width:760px;
+      font-family:"Cormorant Garamond",serif;
+      font-size:clamp(28px,4.5vw,54px);
+      font-weight:500;
+      line-height:1.25;
+      letter-spacing:-.02em;
+      color:#fff9fd;
+      text-wrap:balance;
+      text-shadow:0 6px 32px rgba(0,0,0,.35);
+    }
+
+    html[lang="th"] .hero-title{
+      max-width:720px;
+      font-size:clamp(27px,4vw,47px);
+      font-weight:400;
+      line-height:1.45;
+      letter-spacing:0;
+    }
+
+    html[lang="th"] .description{
+      max-width:650px;
+      font-size:clamp(13px,1.45vw,15px);
+      font-weight:300;
+      line-height:1.95;
+      letter-spacing:0;
+      color:rgba(255,247,252,.72);
+    }
+
     .cta{
       margin-top:30px;
       position:relative;
       border:1px solid rgba(255,190,220,.5);
       color:#fff;
-      background:linear-gradient(135deg,rgba(255,120,183,.2),rgba(150,70,220,.14));
+      background:linear-gradient(135deg,rgba(255,120,183,.26),rgba(150,70,220,.18));
       border-radius:999px;
-      padding:15px 27px;
+      padding:15px 30px;
       min-width:178px;
       cursor:pointer;
       font-family:"DM Sans",sans-serif;
@@ -317,7 +382,8 @@
       .topbar{padding:17px}
       .logo{font-size:clamp(65px,20vw,105px)}
       .sub-logo{letter-spacing:.35em;text-indent:.35em}
-      .description{max-width:330px}
+      .hero-title{max-width:340px}
+      .description{max-width:350px}
       .menu-panel{width:88vw}
     }
 
@@ -360,12 +426,15 @@
   <main class="hero">
     <section class="hero-inner">
       <div class="eyebrow" data-i18n="eyebrow">DIGITAL GIFTS • MADE WITH LOVE</div>
-      <h1 class="logo">Memora</h1>
+      <div class="logo">Memora</div>
       <div class="sub-logo">Digital Gifts</div>
+      <h1 class="hero-title" data-i18n="heroTitle">
+        เปลี่ยนความทรงจำของคุณ ให้กลายเป็นของขวัญดิจิทัลที่มีเพียงหนึ่งเดียว
+      </h1>
       <p class="description" data-i18n="description">
-        เปลี่ยนความทรงจำของคุณ ให้กลายเป็นของขวัญดิจิทัลที่มีเพียงชิ้นเดียวในโลก
+        ของขวัญออนไลน์สำหรับวันครบรอบ วันเกิด และทุกช่วงเวลาที่อยากเก็บไว้ตลอดไป
       </p>
-      <button class="cta" id="explore"><span data-i18n="cta">สำรวจของขวัญ</span></button>
+      <button class="cta" id="explore"><span data-i18n="cta">ค้นพบของขวัญ</span></button>
     </section>
   </main>
 
@@ -395,14 +464,16 @@
     const translations = {
       th:{
         eyebrow:"DIGITAL GIFTS • MADE WITH LOVE",
-        description:"เปลี่ยนความทรงจำของคุณ ให้กลายเป็นของขวัญดิจิทัลที่มีเพียงชิ้นเดียวในโลก",
-        cta:"สำรวจของขวัญ",home:"หน้าแรก",products:"ของขวัญ",
+        heroTitle:"เปลี่ยนความทรงจำของคุณ ให้กลายเป็นของขวัญดิจิทัลที่มีเพียงหนึ่งเดียว",
+        description:"ของขวัญออนไลน์สำหรับวันครบรอบ วันเกิด และทุกช่วงเวลาที่อยากเก็บไว้ตลอดไป",
+        cta:"ค้นพบของขวัญ",home:"หน้าแรก",products:"ของขวัญ",
         reviews:"รีวิว",faq:"คำถามที่พบบ่อย"
       },
       en:{
         eyebrow:"DIGITAL GIFTS • MADE WITH LOVE",
-        description:"Turn your memories into a digital gift that exists nowhere else.",
-        cta:"Explore gifts",home:"Home",products:"Gifts",
+        heroTitle:"Turn your memories into a one-of-a-kind digital gift.",
+        description:"Online gifts for anniversaries, birthdays, and every moment worth remembering.",
+        cta:"Discover gifts",home:"Home",products:"Gifts",
         reviews:"Reviews",faq:"FAQ"
       }
     };
@@ -510,3 +581,5 @@
   </script>
 </body>
 </html>
+
+   
