@@ -31,14 +31,20 @@
 
     /* The approved background master lives here and is rendered as a visual layer. */
     .background-master{
-      position:fixed;
-      inset:0;
-      width:100%;
-      height:100%;
-      border:0;
-      z-index:0;
-      pointer-events:none;
-    }
+  position:fixed;
+  inset:0;
+  width:100%;
+  height:100%;
+  z-index:0;
+  pointer-events:none;
+
+  background:
+    linear-gradient(
+      rgba(5,1,10,.18),
+      rgba(5,1,10,.30)
+    ),
+    url("assets/memora-waterfall.png") center center / cover no-repeat;
+}
 
 
     .veil{
@@ -398,12 +404,7 @@
 </head>
 
 <body>
-  <iframe
-    class="background-master"
-    src="assets/romantic-hearts-background.html"
-    title=""
-    aria-hidden="true">
-  </iframe>
+  <div class="background-master"></div>
 
   <div class="veil"></div>
 
