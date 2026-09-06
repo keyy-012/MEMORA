@@ -509,6 +509,11 @@
 
       overflow:hidden;
 
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      text-decoration:none;
+
       transition:
         transform .3s ease,
         box-shadow .3s ease,
@@ -1248,6 +1253,19 @@
   </a>
 
 </nav>
+  <div class="menu-footer">
+  EVERY MOMENT, FOREVER MEMORABLE
+</div>
+
+</aside>
+
+</div>
+
+
+<div
+  class="flash"
+  id="flash"
+></div>
   <!-- =========================
        JAVASCRIPT
        ========================= -->
@@ -1576,116 +1594,46 @@ aboutEnding:
     );
 
 
-function renderRoute(hash){
+/* =========================
+   CLICK HEART
+   ========================= */
 
-  const route =
-    (hash || "")
-      .replace("#","");
+document.addEventListener(
+  "pointerdown",
+  e=>{
 
+    if(
+      e.pointerType === "mouse" &&
+      e.button !== 0
+    ){
+      return;
+    }
 
-  const isAbout =
-    route === "about";
+    const h =
+      document.createElement("span");
 
+    h.className =
+      "click-heart";
 
-  hero.classList.toggle(
-    "page-hidden",
-    isAbout
-  );
+    h.style.left =
+      e.clientX + "px";
 
+    h.style.top =
+      e.clientY + "px";
 
-  aboutPage.classList.toggle(
-    "active",
-    isAbout
-  );
+    document.body.appendChild(h);
 
-
-  aboutPage.setAttribute(
-    "aria-hidden",
-    String(!isAbout)
-  );
-
-}
-
-
-function transitionTo(hash){
-
- 
-
-   const hero =
-  document.querySelector(".hero");
-
-const aboutPage =
-  document.querySelector("#aboutPage");
-
-
-function renderRoute(hash){
-
-  const route =
-    (hash || "").replace("#","");
-
-  const isAbout =
-    route === "about";
-
-  hero.classList.toggle(
-    "page-hidden",
-    isAbout
-  );
-
-  aboutPage.classList.toggle(
-    "active",
-    isAbout
-  );
-
-  aboutPage.setAttribute(
-    "aria-hidden",
-    String(!isAbout)
-  );
-
-}
-
-
-function transitionTo(hash){
-  
-    /* =========================
-       CLICK HEART
-       ========================= */
-
-    document.addEventListener(
-      "pointerdown",
-      e=>{
-
-        if(
-          e.pointerType === "mouse" &&
-          e.button !== 0
-        ){
-          return;
-        }
-
-        const h =
-          document.createElement("span");
-
-        h.className =
-          "click-heart";
-
-        h.style.left =
-          e.clientX + "px";
-
-        h.style.top =
-          e.clientY + "px";
-
-        document.body.appendChild(h);
-
-        h.addEventListener(
-          "animationend",
-          ()=>h.remove(),
-          {once:true}
-        );
-
-      },
-      {passive:true}
+    h.addEventListener(
+      "animationend",
+      ()=>h.remove(),
+      {once:true}
     );
 
-  </script>
-  
+  },
+  {passive:true}
+);
+
+</script>
+
 </body>
 </html>
