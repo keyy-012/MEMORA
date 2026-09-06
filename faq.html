@@ -1,1 +1,1709 @@
+<!doctype html>
 
+<html lang="th">
+
+<head>
+
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width,initial-scale=1"
+  >
+
+  <title>คำถามที่พบบ่อย | Memora</title>
+
+  <meta
+    name="description"
+    content="คำถามที่พบบ่อยเกี่ยวกับ Memora เว็บไซต์ของขวัญดิจิทัลสำหรับวันครบรอบ วันเกิด และคนพิเศษ"
+  >
+
+  <meta
+    name="theme-color"
+    content="#09030f"
+  >
+
+
+  <style>
+
+    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Noto+Sans+Thai:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap');
+
+
+    :root{
+      --bg:#09030f;
+      --white:#fff8fc;
+      --soft:rgba(255,248,252,.70);
+      --pink:#ff78b7;
+      --pink2:#ffc0df;
+      --line:rgba(255,255,255,.14);
+    }
+
+
+    *{
+      box-sizing:border-box;
+    }
+
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+
+    body{
+      margin:0;
+
+      min-height:100vh;
+
+      background:#09030f;
+
+      color:var(--white);
+
+      font-family:
+        "Noto Sans Thai",
+        "Plus Jakarta Sans",
+        sans-serif;
+
+      -webkit-font-smoothing:
+        antialiased;
+    }
+
+
+    /* =========================
+       BACKGROUND
+       ========================= */
+
+    .background{
+      position:fixed;
+
+      inset:0;
+
+      z-index:-3;
+
+      overflow:hidden;
+
+      background:#09030f;
+    }
+
+
+    .background video{
+      width:100%;
+      height:100%;
+
+      object-fit:cover;
+      object-position:center;
+
+      display:block;
+
+      opacity:.34;
+    }
+
+
+    .veil{
+      position:fixed;
+
+      inset:0;
+
+      z-index:-2;
+
+      pointer-events:none;
+
+      background:
+
+        radial-gradient(
+          circle at 50% 15%,
+          rgba(255,106,180,.13),
+          transparent 34%
+        ),
+
+        radial-gradient(
+          circle at 18% 75%,
+          rgba(145,66,205,.10),
+          transparent 40%
+        ),
+
+        linear-gradient(
+          to bottom,
+          rgba(4,1,9,.50),
+          rgba(9,3,15,.78) 45%,
+          rgba(9,3,15,.96)
+        );
+    }
+
+
+    .glow{
+      position:fixed;
+
+      left:50%;
+      top:180px;
+
+      width:min(700px,85vw);
+      height:300px;
+
+      transform:
+        translateX(-50%);
+
+      border-radius:50%;
+
+      background:
+
+        radial-gradient(
+          ellipse at center,
+          rgba(255,115,184,.14),
+          rgba(159,77,216,.06) 45%,
+          transparent 72%
+        );
+
+      filter:blur(35px);
+
+      z-index:-1;
+
+      pointer-events:none;
+    }
+
+
+    /* =========================
+       TOP BAR
+       ========================= */
+
+    .topbar{
+      position:fixed;
+
+      top:0;
+      left:0;
+      right:0;
+
+      z-index:20;
+
+      display:flex;
+
+      align-items:center;
+
+      justify-content:
+        space-between;
+
+      padding:
+        22px
+        28px;
+    }
+
+
+    .back{
+      display:inline-flex;
+
+      align-items:center;
+
+      justify-content:center;
+
+      gap:9px;
+
+      min-height:48px;
+
+      padding:
+        0
+        18px;
+
+      border:
+        1px solid
+        rgba(255,255,255,.17);
+
+      border-radius:999px;
+
+      background:
+        rgba(8,3,14,.34);
+
+      backdrop-filter:
+        blur(18px);
+
+      -webkit-backdrop-filter:
+        blur(18px);
+
+      color:#fff;
+
+      text-decoration:none;
+
+      font-size:12px;
+
+      transition:
+        transform .3s ease,
+        background .3s ease;
+    }
+
+
+    .back:hover{
+      transform:
+        translateX(-3px);
+
+      background:
+        rgba(255,255,255,.08);
+    }
+
+
+    .top-right{
+      display:flex;
+
+      align-items:center;
+
+      gap:14px;
+    }
+
+
+    .brand{
+      font-family:
+        "Great Vibes",
+        cursive;
+
+      font-size:42px;
+
+      line-height:1;
+
+      color:#fff;
+
+      text-shadow:
+        0 0 15px
+        rgba(255,120,183,.42);
+    }
+
+
+    /* =========================
+       LANGUAGE
+       ========================= */
+
+    .language{
+      display:flex;
+
+      padding:4px;
+
+      border:
+        1px solid
+        rgba(255,255,255,.17);
+
+      border-radius:999px;
+
+      background:
+        rgba(8,3,14,.34);
+
+      backdrop-filter:
+        blur(18px);
+
+      -webkit-backdrop-filter:
+        blur(18px);
+    }
+
+
+    .language button{
+      min-width:42px;
+
+      height:36px;
+
+      border:0;
+
+      border-radius:999px;
+
+      background:transparent;
+
+      color:
+        rgba(255,255,255,.50);
+
+      cursor:pointer;
+
+      font-family:
+        "Plus Jakarta Sans",
+        sans-serif;
+
+      font-size:10px;
+
+      font-weight:500;
+
+      letter-spacing:.08em;
+
+      transition:.25s ease;
+    }
+
+
+    .language button.active{
+      color:#fff;
+
+      background:
+        rgba(255,120,183,.18);
+    }
+
+
+    /* =========================
+       FAQ
+       ========================= */
+
+    .faq-page{
+      width:
+        min(850px,90vw);
+
+      margin:
+        0 auto;
+
+      padding:
+        145px
+        0
+        100px;
+    }
+
+
+    .faq-head{
+      text-align:center;
+    }
+
+
+    .eyebrow{
+      font-family:
+        "Plus Jakarta Sans",
+        sans-serif;
+
+      font-size:10px;
+
+      font-weight:500;
+
+      letter-spacing:.36em;
+
+      text-transform:uppercase;
+
+      color:
+        rgba(255,255,255,.48);
+
+      margin-bottom:18px;
+    }
+
+
+    .title{
+      margin:0;
+
+      font-size:
+        clamp(35px,5vw,55px);
+
+      font-weight:400;
+
+      line-height:1.4;
+
+      letter-spacing:-.025em;
+    }
+
+
+    .subtitle{
+      max-width:600px;
+
+      margin:
+        17px auto
+        0;
+
+      color:var(--soft);
+
+      font-size:14px;
+
+      font-weight:300;
+
+      line-height:1.9;
+    }
+
+
+    .divider{
+      width:70px;
+
+      height:1px;
+
+      margin:
+        35px auto
+        46px;
+
+      background:
+
+        linear-gradient(
+          to right,
+          transparent,
+          rgba(255,120,183,.85),
+          transparent
+        );
+    }
+
+
+    /* =========================
+       FAQ LIST
+       ========================= */
+
+    .faq-list{
+      display:flex;
+
+      flex-direction:column;
+
+      gap:12px;
+    }
+
+
+    .faq-item{
+      border:
+        1px solid
+        rgba(255,255,255,.12);
+
+      border-radius:22px;
+
+      background:
+        rgba(12,5,19,.42);
+
+      backdrop-filter:
+        blur(18px);
+
+      -webkit-backdrop-filter:
+        blur(18px);
+
+      overflow:hidden;
+
+      transition:
+        border-color .3s ease,
+        background .3s ease;
+    }
+
+
+    .faq-item:hover{
+      border-color:
+        rgba(255,184,220,.22);
+    }
+
+
+    .faq-item.open{
+      border-color:
+        rgba(255,184,220,.28);
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,120,183,.075),
+          rgba(122,57,180,.05)
+        );
+    }
+
+
+    .faq-question{
+      width:100%;
+
+      min-height:72px;
+
+      padding:
+        18px
+        22px;
+
+      border:0;
+
+      background:transparent;
+
+      color:#fff;
+
+      cursor:pointer;
+
+      display:flex;
+
+      align-items:center;
+
+      justify-content:
+        space-between;
+
+      gap:20px;
+
+      text-align:left;
+
+      font-family:
+        "Noto Sans Thai",
+        "Plus Jakarta Sans",
+        sans-serif;
+
+      font-size:15px;
+
+      font-weight:400;
+    }
+
+
+    html[lang="en"] .faq-question{
+      font-family:
+        "Plus Jakarta Sans",
+        sans-serif;
+    }
+
+
+    .faq-number{
+      flex:0 0 auto;
+
+      color:
+        rgba(255,192,223,.55);
+
+      font-family:
+        "Plus Jakarta Sans",
+        sans-serif;
+
+      font-size:9px;
+
+      letter-spacing:.1em;
+    }
+
+
+    .question-text{
+      flex:1;
+    }
+
+
+    .plus{
+      position:relative;
+
+      flex:0 0 auto;
+
+      width:28px;
+
+      height:28px;
+
+      border-radius:50%;
+
+      border:
+        1px solid
+        rgba(255,255,255,.13);
+
+      transition:
+        transform .35s ease,
+        background .3s ease;
+    }
+
+
+    .plus::before,
+    .plus::after{
+      content:"";
+
+      position:absolute;
+
+      left:50%;
+      top:50%;
+
+      width:10px;
+
+      height:1px;
+
+      background:#fff;
+
+      transform:
+        translate(-50%,-50%);
+
+      transition:
+        transform .3s ease;
+    }
+
+
+    .plus::after{
+      transform:
+        translate(-50%,-50%)
+        rotate(90deg);
+    }
+
+
+    .faq-item.open .plus{
+      transform:
+        rotate(180deg);
+
+      background:
+        rgba(255,120,183,.12);
+    }
+
+
+    .faq-item.open .plus::after{
+      transform:
+        translate(-50%,-50%)
+        rotate(0deg);
+    }
+
+
+    /* =========================
+       ANSWER
+       ========================= */
+
+    .faq-answer{
+      display:grid;
+
+      grid-template-rows:0fr;
+
+      transition:
+        grid-template-rows
+        .38s
+        cubic-bezier(.2,.8,.2,1);
+    }
+
+
+    .faq-item.open .faq-answer{
+      grid-template-rows:1fr;
+    }
+
+
+    .faq-answer-inner{
+      overflow:hidden;
+    }
+
+
+    .faq-answer p{
+      margin:0;
+
+      padding:
+        0
+        62px
+        24px
+        69px;
+
+      color:var(--soft);
+
+      font-size:13.5px;
+
+      font-weight:300;
+
+      line-height:1.9;
+    }
+
+
+    /* =========================
+       BOTTOM
+       ========================= */
+
+    .bottom-note{
+      margin-top:45px;
+
+      text-align:center;
+
+      color:
+        rgba(255,248,252,.55);
+
+      font-size:13px;
+
+      font-weight:300;
+
+      line-height:1.8;
+    }
+
+
+    .bottom-note .heart{
+      color:var(--pink2);
+
+      margin-right:5px;
+    }
+
+
+    /* =========================
+       MOBILE
+       ========================= */
+
+    @media(max-width:700px){
+
+      .topbar{
+        padding:16px;
+      }
+
+
+      .brand{
+        display:none;
+      }
+
+
+      .back{
+        min-height:43px;
+
+        padding:
+          0
+          14px;
+
+        font-size:10.5px;
+      }
+
+
+      .language button{
+        min-width:38px;
+
+        height:33px;
+
+        font-size:9px;
+      }
+
+
+      .faq-page{
+        width:88vw;
+
+        padding-top:115px;
+
+        padding-bottom:65px;
+      }
+
+
+      .eyebrow{
+        font-size:9px;
+
+        letter-spacing:.30em;
+      }
+
+
+      .title{
+        font-size:
+          clamp(29px,9vw,39px);
+      }
+
+
+      .subtitle{
+        font-size:13px;
+      }
+
+
+      .divider{
+        margin:
+          28px auto
+          34px;
+      }
+
+
+      .faq-question{
+        min-height:67px;
+
+        padding:
+          16px
+          16px;
+
+        gap:12px;
+
+        font-size:13px;
+      }
+
+
+      .faq-number{
+        font-size:8px;
+      }
+
+
+      .plus{
+        width:26px;
+
+        height:26px;
+      }
+
+
+      .faq-answer p{
+        padding:
+          0
+          48px
+          20px
+          48px;
+
+        font-size:12.5px;
+
+        line-height:1.85;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <!-- =========================
+       BACKGROUND
+       ========================= -->
+
+  <div class="background">
+
+    <video
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="auto"
+      poster="memora-waterfall.png"
+      aria-hidden="true"
+    >
+
+      <source
+        src="memora-waterfall.mp4"
+        type="video/mp4"
+      >
+
+    </video>
+
+  </div>
+
+
+  <div class="veil"></div>
+
+  <div class="glow"></div>
+
+
+  <!-- =========================
+       TOP BAR
+       ========================= -->
+
+  <header class="topbar">
+
+
+    <a
+      class="back"
+      href="index.html"
+    >
+
+      ←
+
+      <span data-i18n="back">
+        หน้าแรก
+      </span>
+
+    </a>
+
+
+    <div class="top-right">
+
+
+      <div class="language">
+
+        <button
+          class="active"
+          data-lang="th"
+        >
+          TH
+        </button>
+
+        <button
+          data-lang="en"
+        >
+          EN
+        </button>
+
+      </div>
+
+
+      <div class="brand">
+        Memora
+      </div>
+
+
+    </div>
+
+
+  </header>
+
+
+  <!-- =========================
+       FAQ
+       ========================= -->
+
+  <main class="faq-page">
+
+
+    <div class="faq-head">
+
+
+      <div
+        class="eyebrow"
+        data-i18n="eyebrow"
+      >
+        NEED TO KNOW
+      </div>
+
+
+      <h1
+        class="title"
+        data-i18n="title"
+      >
+        คำถามที่พบบ่อย
+      </h1>
+
+
+      <p
+        class="subtitle"
+        data-i18n="subtitle"
+      >
+        รวมคำตอบเล็ก ๆ ที่อาจช่วยให้คุณรู้จัก Memora มากขึ้นก่อนสร้างของขวัญให้คนพิเศษ
+      </p>
+
+
+      <div class="divider"></div>
+
+
+    </div>
+
+
+    <section class="faq-list">
+
+
+      <!-- 01 -->
+
+      <article class="faq-item">
+
+        <button
+          class="faq-question"
+          aria-expanded="false"
+        >
+
+          <span class="faq-number">
+            01
+          </span>
+
+          <span
+            class="question-text"
+            data-i18n="q1"
+          >
+            Memora คืออะไร?
+          </span>
+
+          <span class="plus"></span>
+
+        </button>
+
+
+        <div class="faq-answer">
+
+          <div class="faq-answer-inner">
+
+            <p data-i18n="a1">
+              Memora คือเว็บไซต์ของขวัญดิจิทัลแบบส่วนตัว ที่ช่วยเปลี่ยนรูปภาพ ข้อความ เพลง และความทรงจำของคุณสองคนให้กลายเป็นของขวัญออนไลน์ที่มีเรื่องราวเป็นของตัวเอง
+            </p>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- 02 -->
+
+      <article class="faq-item">
+
+        <button
+          class="faq-question"
+          aria-expanded="false"
+        >
+
+          <span class="faq-number">
+            02
+          </span>
+
+          <span
+            class="question-text"
+            data-i18n="q2"
+          >
+            Memora เหมาะกับโอกาสอะไรบ้าง?
+          </span>
+
+          <span class="plus"></span>
+
+        </button>
+
+
+        <div class="faq-answer">
+
+          <div class="faq-answer-inner">
+
+            <p data-i18n="a2">
+              Memora เหมาะสำหรับวันครบรอบ วันเกิด วันวาเลนไทน์ หรือแม้แต่วันธรรมดาที่คุณอยากทำอะไรพิเศษให้คนสำคัญ โดยแต่ละของขวัญอาจมีรูปแบบและฟีเจอร์แตกต่างกัน
+            </p>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- 03 -->
+
+      <article class="faq-item">
+
+        <button
+          class="faq-question"
+          aria-expanded="false"
+        >
+
+          <span class="faq-number">
+            03
+          </span>
+
+          <span
+            class="question-text"
+            data-i18n="q3"
+          >
+            ในเว็บไซต์ของขวัญใส่อะไรได้บ้าง?
+          </span>
+
+          <span class="plus"></span>
+
+        </button>
+
+
+        <div class="faq-answer">
+
+          <div class="faq-answer-inner">
+
+            <p data-i18n="a3">
+              ขึ้นอยู่กับของขวัญที่คุณเลือก โดยสามารถมีรูปความทรงจำ ข้อความถึงคนพิเศษ เพลง วันที่สำคัญ คำถาม และกิจกรรมเล็ก ๆ ที่ออกแบบมาให้คุณสองคนได้มีส่วนร่วมด้วยกัน
+            </p>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- 04 -->
+
+      <article class="faq-item">
+
+        <button
+          class="faq-question"
+          aria-expanded="false"
+        >
+
+          <span class="faq-number">
+            04
+          </span>
+
+          <span
+            class="question-text"
+            data-i18n="q4"
+          >
+            ต้องเขียนโค้ดหรือทำเว็บไซต์เป็นไหม?
+          </span>
+
+          <span class="plus"></span>
+
+        </button>
+
+
+        <div class="faq-answer">
+
+          <div class="faq-answer-inner">
+
+            <p data-i18n="a4">
+              ไม่ต้องเลย คุณไม่จำเป็นต้องมีความรู้เรื่องเว็บไซต์หรือการเขียนโค้ด เพียงเตรียมข้อมูลและความทรงจำที่ต้องการใส่ แล้วใช้งานผ่านระบบที่ Memora เตรียมไว้ให้
+            </p>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- 05 -->
+
+      <article class="faq-item">
+
+        <button
+          class="faq-question"
+          aria-expanded="false"
+        >
+
+          <span class="faq-number">
+            05
+          </span>
+
+          <span
+            class="question-text"
+            data-i18n="q5"
+          >
+            สามารถแก้ไขข้อมูลของเว็บไซต์เองได้ไหม?
+          </span>
+
+          <span class="plus"></span>
+
+        </button>
+
+
+        <div class="faq-answer">
+
+          <div class="faq-answer-inner">
+
+            <p data-i18n="a5">
+              ได้ สำหรับเว็บไซต์ที่รองรับการแก้ไข คุณจะได้รับลิงก์ส่วนตัวสำหรับจัดการข้อมูล เช่น ชื่อ รูปภาพ ข้อความ เพลง และรายละเอียดอื่น ๆ ที่สามารถแก้ไขได้
+            </p>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- 06 -->
+
+      <article class="faq-item">
+
+        <button
+          class="faq-question"
+          aria-expanded="false"
+        >
+
+          <span class="faq-number">
+            06
+          </span>
+
+          <span
+            class="question-text"
+            data-i18n="q6"
+          >
+            เปิดเว็บไซต์บนโทรศัพท์ได้ไหม?
+          </span>
+
+          <span class="plus"></span>
+
+        </button>
+
+
+        <div class="faq-answer">
+
+          <div class="faq-answer-inner">
+
+            <p data-i18n="a6">
+              ได้ เว็บไซต์ของ Memora ออกแบบให้ใช้งานได้ทั้งบนโทรศัพท์ แท็บเล็ต และคอมพิวเตอร์ คุณจึงสามารถส่งลิงก์ให้คนพิเศษเปิดดูได้ง่าย ๆ
+            </p>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- 07 -->
+
+      <article class="faq-item">
+
+        <button
+          class="faq-question"
+          aria-expanded="false"
+        >
+
+          <span class="faq-number">
+            07
+          </span>
+
+          <span
+            class="question-text"
+            data-i18n="q7"
+          >
+            คนอื่นจะเข้ามาเห็นเว็บไซต์ของเราได้ไหม?
+          </span>
+
+          <span class="plus"></span>
+
+        </button>
+
+
+        <div class="faq-answer">
+
+          <div class="faq-answer-inner">
+
+            <p data-i18n="a7">
+              เว็บไซต์แต่ละชิ้นจะมีลิงก์ของตัวเอง และบางรูปแบบสามารถตั้งรหัสผ่านก่อนเข้าสู่เว็บไซต์ได้ คุณจึงสามารถเลือกแชร์ให้เฉพาะคนที่ต้องการได้
+            </p>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- 08 -->
+
+      <article class="faq-item">
+
+        <button
+          class="faq-question"
+          aria-expanded="false"
+        >
+
+          <span class="faq-number">
+            08
+          </span>
+
+          <span
+            class="question-text"
+            data-i18n="q8"
+          >
+            หลังจากสั่งซื้อแล้วจะได้รับอะไร?
+          </span>
+
+          <span class="plus"></span>
+
+        </button>
+
+
+        <div class="faq-answer">
+
+          <div class="faq-answer-inner">
+
+            <p data-i18n="a8">
+              หลังจากดำเนินการสั่งซื้อเรียบร้อย คุณจะได้รับลิงก์สำหรับแก้ไขข้อมูลของเว็บไซต์ และลิงก์เว็บไซต์จริงที่สามารถส่งให้คนพิเศษเปิดดูได้
+            </p>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- 09 -->
+
+      <article class="faq-item">
+
+        <button
+          class="faq-question"
+          aria-expanded="false"
+        >
+
+          <span class="faq-number">
+            09
+          </span>
+
+          <span
+            class="question-text"
+            data-i18n="q9"
+          >
+            สามารถใส่เพลง รูปภาพ และข้อความของตัวเองได้ไหม?
+          </span>
+
+          <span class="plus"></span>
+
+        </button>
+
+
+        <div class="faq-answer">
+
+          <div class="faq-answer-inner">
+
+            <p data-i18n="a9">
+              ได้ คุณสามารถใช้รูปภาพ ความทรงจำ ข้อความ และเพลงที่มีความหมายกับคุณสองคนได้ โดยจำนวนและรูปแบบของข้อมูลที่ใส่ได้อาจแตกต่างกันตามของขวัญที่เลือก
+            </p>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- 10 -->
+
+      <article class="faq-item">
+
+        <button
+          class="faq-question"
+          aria-expanded="false"
+        >
+
+          <span class="faq-number">
+            10
+          </span>
+
+          <span
+            class="question-text"
+            data-i18n="q10"
+          >
+            ดูของขวัญและราคาปัจจุบันได้ที่ไหน?
+          </span>
+
+          <span class="plus"></span>
+
+        </button>
+
+
+        <div class="faq-answer">
+
+          <div class="faq-answer-inner">
+
+            <p data-i18n="a10">
+              คุณสามารถดูของขวัญที่เปิดให้เลือก รายละเอียดของแต่ละแบบ และราคาปัจจุบันได้ที่หน้า Gifts ของ Memora
+            </p>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+    </section>
+
+
+    <p class="bottom-note">
+
+      <span class="heart">
+        ♡
+      </span>
+
+      <span data-i18n="bottom">
+        ถ้ายังมีคำถามอื่น ๆ คุณสามารถติดต่อ Memora ได้เสมอ
+      </span>
+
+    </p>
+
+
+  </main>
+
+
+  <!-- =========================
+       JAVASCRIPT
+       ========================= -->
+
+  <script>
+
+    "use strict";
+
+
+    /* =========================
+       FAQ ACCORDION
+       ========================= */
+
+    document
+      .querySelectorAll(
+        ".faq-question"
+      )
+      .forEach(button=>{
+
+        button.addEventListener(
+          "click",
+          ()=>{
+
+            const item =
+              button.closest(
+                ".faq-item"
+              );
+
+
+            const wasOpen =
+              item.classList.contains(
+                "open"
+              );
+
+
+            document
+              .querySelectorAll(
+                ".faq-item"
+              )
+              .forEach(other=>{
+
+                other.classList.remove(
+                  "open"
+                );
+
+
+                other
+                  .querySelector(
+                    ".faq-question"
+                  )
+                  .setAttribute(
+                    "aria-expanded",
+                    "false"
+                  );
+
+              });
+
+
+            if(!wasOpen){
+
+              item.classList.add(
+                "open"
+              );
+
+
+              button.setAttribute(
+                "aria-expanded",
+                "true"
+              );
+
+            }
+
+          }
+        );
+
+      });
+
+
+    /* =========================
+       LANGUAGE
+       ========================= */
+
+    const translations = {
+
+
+      th:{
+
+        back:
+          "หน้าแรก",
+
+        eyebrow:
+          "NEED TO KNOW",
+
+        title:
+          "คำถามที่พบบ่อย",
+
+        subtitle:
+          "รวมคำตอบเล็ก ๆ ที่อาจช่วยให้คุณรู้จัก Memora มากขึ้นก่อนสร้างของขวัญให้คนพิเศษ",
+
+
+        q1:
+          "Memora คืออะไร?",
+
+        a1:
+          "Memora คือเว็บไซต์ของขวัญดิจิทัลแบบส่วนตัว ที่ช่วยเปลี่ยนรูปภาพ ข้อความ เพลง และความทรงจำของคุณสองคนให้กลายเป็นของขวัญออนไลน์ที่มีเรื่องราวเป็นของตัวเอง",
+
+
+        q2:
+          "Memora เหมาะกับโอกาสอะไรบ้าง?",
+
+        a2:
+          "Memora เหมาะสำหรับวันครบรอบ วันเกิด วันวาเลนไทน์ หรือแม้แต่วันธรรมดาที่คุณอยากทำอะไรพิเศษให้คนสำคัญ โดยแต่ละของขวัญอาจมีรูปแบบและฟีเจอร์แตกต่างกัน",
+
+
+        q3:
+          "ในเว็บไซต์ของขวัญใส่อะไรได้บ้าง?",
+
+        a3:
+          "ขึ้นอยู่กับของขวัญที่คุณเลือก โดยสามารถมีรูปความทรงจำ ข้อความถึงคนพิเศษ เพลง วันที่สำคัญ คำถาม และกิจกรรมเล็ก ๆ ที่ออกแบบมาให้คุณสองคนได้มีส่วนร่วมด้วยกัน",
+
+
+        q4:
+          "ต้องเขียนโค้ดหรือทำเว็บไซต์เป็นไหม?",
+
+        a4:
+          "ไม่ต้องเลย คุณไม่จำเป็นต้องมีความรู้เรื่องเว็บไซต์หรือการเขียนโค้ด เพียงเตรียมข้อมูลและความทรงจำที่ต้องการใส่ แล้วใช้งานผ่านระบบที่ Memora เตรียมไว้ให้",
+
+
+        q5:
+          "สามารถแก้ไขข้อมูลของเว็บไซต์เองได้ไหม?",
+
+        a5:
+          "ได้ สำหรับเว็บไซต์ที่รองรับการแก้ไข คุณจะได้รับลิงก์ส่วนตัวสำหรับจัดการข้อมูล เช่น ชื่อ รูปภาพ ข้อความ เพลง และรายละเอียดอื่น ๆ ที่สามารถแก้ไขได้",
+
+
+        q6:
+          "เปิดเว็บไซต์บนโทรศัพท์ได้ไหม?",
+
+        a6:
+          "ได้ เว็บไซต์ของ Memora ออกแบบให้ใช้งานได้ทั้งบนโทรศัพท์ แท็บเล็ต และคอมพิวเตอร์ คุณจึงสามารถส่งลิงก์ให้คนพิเศษเปิดดูได้ง่าย ๆ",
+
+
+        q7:
+          "คนอื่นจะเข้ามาเห็นเว็บไซต์ของเราได้ไหม?",
+
+        a7:
+          "เว็บไซต์แต่ละชิ้นจะมีลิงก์ของตัวเอง และบางรูปแบบสามารถตั้งรหัสผ่านก่อนเข้าสู่เว็บไซต์ได้ คุณจึงสามารถเลือกแชร์ให้เฉพาะคนที่ต้องการได้",
+
+
+        q8:
+          "หลังจากสั่งซื้อแล้วจะได้รับอะไร?",
+
+        a8:
+          "หลังจากดำเนินการสั่งซื้อเรียบร้อย คุณจะได้รับลิงก์สำหรับแก้ไขข้อมูลของเว็บไซต์ และลิงก์เว็บไซต์จริงที่สามารถส่งให้คนพิเศษเปิดดูได้",
+
+
+        q9:
+          "สามารถใส่เพลง รูปภาพ และข้อความของตัวเองได้ไหม?",
+
+        a9:
+          "ได้ คุณสามารถใช้รูปภาพ ความทรงจำ ข้อความ และเพลงที่มีความหมายกับคุณสองคนได้ โดยจำนวนและรูปแบบของข้อมูลที่ใส่ได้อาจแตกต่างกันตามของขวัญที่เลือก",
+
+
+        q10:
+          "ดูของขวัญและราคาปัจจุบันได้ที่ไหน?",
+
+        a10:
+          "คุณสามารถดูของขวัญที่เปิดให้เลือก รายละเอียดของแต่ละแบบ และราคาปัจจุบันได้ที่หน้า Gifts ของ Memora",
+
+
+        bottom:
+          "ถ้ายังมีคำถามอื่น ๆ คุณสามารถติดต่อ Memora ได้เสมอ"
+
+      },
+
+
+      en:{
+
+        back:
+          "Home",
+
+        eyebrow:
+          "NEED TO KNOW",
+
+        title:
+          "Frequently Asked Questions",
+
+        subtitle:
+          "A few answers to help you get to know Memora before creating something special for someone you love.",
+
+
+        q1:
+          "What is Memora?",
+
+        a1:
+          "Memora is a personal digital gift website that turns your photos, messages, music, and shared memories into an online gift built around your own story.",
+
+
+        q2:
+          "What occasions is Memora for?",
+
+        a2:
+          "Memora is perfect for anniversaries, birthdays, Valentine's Day, or simply any day when you want to make someone special feel loved. Available designs and features may vary by gift.",
+
+
+        q3:
+          "What can I add to my gift website?",
+
+        a3:
+          "Depending on the gift you choose, your website can include memory photos, personal messages, meaningful music, important dates, questions, and little interactive moments for the two of you.",
+
+
+        q4:
+          "Do I need to know how to code or build a website?",
+
+        a4:
+          "Not at all. You do not need any coding or website experience. Simply prepare the memories and information you want to include and use the system provided by Memora.",
+
+
+        q5:
+          "Can I edit my website myself?",
+
+        a5:
+          "Yes. For gifts that support editing, you will receive a personal editing link where you can update available details such as names, photos, messages, music, and other content.",
+
+
+        q6:
+          "Can I open the website on my phone?",
+
+        a6:
+          "Yes. Memora websites are designed to work on phones, tablets, and computers, making it easy to send the link directly to someone special.",
+
+
+        q7:
+          "Can other people see my website?",
+
+        a7:
+          "Each gift website has its own link, and some designs can also include a passcode before entering. You can choose who you want to share the website with.",
+
+
+        q8:
+          "What will I receive after ordering?",
+
+        a8:
+          "After your order is completed, you will receive a personal editing link and the actual website link that you can send to someone special.",
+
+
+        q9:
+          "Can I use my own photos, music, and messages?",
+
+        a9:
+          "Yes. You can use your own photos, shared memories, personal messages, and meaningful music. The amount and type of content available may vary depending on the gift you choose.",
+
+
+        q10:
+          "Where can I see the available gifts and current prices?",
+
+        a10:
+          "You can view currently available gifts, their details, and current pricing on the Memora Gifts page.",
+
+
+        bottom:
+          "Still have a question? You can always reach out to Memora."
+
+      }
+
+    };
+
+
+    function setLanguage(code){
+
+      const language =
+        translations[code]
+        ? code
+        : "th";
+
+
+      const t =
+        translations[language];
+
+
+      document.documentElement.lang =
+        language;
+
+
+      document
+        .querySelectorAll(
+          "[data-i18n]"
+        )
+        .forEach(element=>{
+
+          const key =
+            element.dataset.i18n;
+
+
+          if(t[key]){
+
+            element.textContent =
+              t[key];
+
+          }
+
+        });
+
+
+      document
+        .querySelectorAll(
+          "[data-lang]"
+        )
+        .forEach(button=>{
+
+          button.classList.toggle(
+            "active",
+            button.dataset.lang === language
+          );
+
+        });
+
+
+      localStorage.setItem(
+        "memora-language",
+        language
+      );
+
+    }
+
+
+    document
+      .querySelectorAll(
+        "[data-lang]"
+      )
+      .forEach(button=>{
+
+        button.addEventListener(
+          "click",
+          ()=>{
+
+            setLanguage(
+              button.dataset.lang
+            );
+
+          }
+        );
+
+      });
+
+
+    setLanguage(
+      localStorage.getItem(
+        "memora-language"
+      ) || "th"
+    );
+
+
+  </script>
+
+
+</body>
+
+</html>
