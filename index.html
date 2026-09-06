@@ -15,7 +15,7 @@
 
   <meta
     name="keywords"
-    content="ของขวัญดิจิทัล, ของขวัญวันครบรอบ, ของขวัญให้แฟน, ของขวัญออนไลน์, digital gifts, anniversary gift"
+    content="ของขวัญดิจิทัล, ของขวัญวันครบรอบ, ของขวัญให้แฟน, ของขวัญออนไลน์, เว็บไซต์วันครบรอบ, เว็บไซต์ของขวัญ, digital gifts, anniversary gift"
   >
 
   <meta
@@ -96,71 +96,72 @@
        CINEMATIC OVERLAY
        ========================= */
 
-.veil{
-  position:fixed;
-  inset:0;
-  z-index:2;
-  pointer-events:none;
+    .veil{
+      position:fixed;
+      inset:0;
+      z-index:2;
+      pointer-events:none;
 
-  background:
-    radial-gradient(
-      circle at 50% 46%,
-      rgba(9,3,15,.18) 0 10%,
-      rgba(9,3,15,.08) 22%,
-      transparent 44%
-    ),
-    radial-gradient(
-      circle at 15% 18%,
-      rgba(148,56,204,.10),
-      transparent 34%
-    ),
-    radial-gradient(
-      circle at 84% 78%,
-      rgba(255,96,170,.09),
-      transparent 32%
-    ),
-    linear-gradient(
-      to bottom,
-      rgba(5,1,10,.18),
-      rgba(5,1,10,.03) 35%,
-      rgba(5,1,10,.06) 62%,
-      rgba(5,1,10,.28)
-    );
-}
+      background:
+        radial-gradient(
+          circle at 50% 46%,
+          rgba(9,3,15,.18) 0 10%,
+          rgba(9,3,15,.08) 22%,
+          transparent 44%
+        ),
+        radial-gradient(
+          circle at 15% 18%,
+          rgba(148,56,204,.10),
+          transparent 34%
+        ),
+        radial-gradient(
+          circle at 84% 78%,
+          rgba(255,96,170,.09),
+          transparent 32%
+        ),
+        linear-gradient(
+          to bottom,
+          rgba(5,1,10,.18),
+          rgba(5,1,10,.03) 35%,
+          rgba(5,1,10,.06) 62%,
+          rgba(5,1,10,.28)
+        );
+    }
 
-.veil::before{
-  content:"";
-  position:absolute;
-  inset:0;
+    .veil::before{
+      content:"";
+      position:absolute;
+      inset:0;
 
-  background:
-    radial-gradient(
-      ellipse at center,
-      transparent 40%,
-      rgba(3,0,8,.18) 78%,
-      rgba(3,0,8,.38) 100%
-    );
+      background:
+        radial-gradient(
+          ellipse at center,
+          transparent 40%,
+          rgba(3,0,8,.18) 78%,
+          rgba(3,0,8,.38) 100%
+        );
+    }
 
-  mix-blend-mode:normal;
-}
+    .veil::after{
+      content:"";
+      position:absolute;
+      left:50%;
+      top:46%;
+      width:min(620px,72vw);
+      height:min(250px,32vw);
+      transform:translate(-50%,-50%);
+      border-radius:50%;
 
-.veil::after{
-  content:"";
-  position:absolute;
-  left:50%;
-  top:46%;
-  width:min(620px,72vw);
-  height:min(250px,32vw);
-  transform:translate(-50%,-50%);
-  border-radius:50%;
-  background:radial-gradient(
-    ellipse at center,
-    rgba(255,112,183,.18),
-    rgba(152,69,219,.10) 42%,
-    transparent 72%
-  );
-  filter:blur(24px);
-}
+      background:
+        radial-gradient(
+          ellipse at center,
+          rgba(255,112,183,.18),
+          rgba(152,69,219,.10) 42%,
+          transparent 72%
+        );
+
+      filter:blur(24px);
+    }
 
 
     /* =========================
@@ -172,7 +173,6 @@
       top:0;
       left:0;
       right:0;
-
       z-index:20;
 
       display:flex;
@@ -203,7 +203,6 @@
 
       border-radius:50%;
       border:1px solid var(--line);
-
       background:var(--glass);
 
       display:grid;
@@ -291,12 +290,10 @@
 
       width:160px;
       padding:8px;
-
       border-radius:20px;
 
       opacity:0;
       transform:translateY(-10px) scale(.97);
-
       pointer-events:none;
 
       transition:.3s cubic-bezier(.2,.8,.2,1);
@@ -341,7 +338,6 @@
     .hero{
       position:fixed;
       inset:0;
-
       z-index:10;
 
       display:flex;
@@ -349,25 +345,42 @@
       justify-content:center;
 
       text-align:center;
-
       pointer-events:none;
 
       padding:30px;
+
+      transition:
+        opacity .55s ease,
+        transform .65s cubic-bezier(.16,1,.3,1),
+        visibility .55s;
     }
 
-   .hero-inner{
-  width:min(780px,90vw);
-  pointer-events:auto;
-  transform:translateY(8px);
-  opacity:0;
-  animation:heroIn 1.15s cubic-bezier(.16,1,.3,1) .25s forwards;
-}
+    .hero.page-hidden{
+      opacity:0;
+      visibility:hidden;
+      pointer-events:none;
+      transform:scale(.97);
+    }
+
+    .hero-inner{
+      width:min(780px,90vw);
+      pointer-events:auto;
+
+      transform:translateY(8px);
+      opacity:0;
+
+      animation:
+        heroIn
+        1.15s
+        cubic-bezier(.16,1,.3,1)
+        .25s
+        forwards;
+    }
+
     .eyebrow{
       font-family:"DM Sans",sans-serif;
-
       font-size:10px;
       letter-spacing:.38em;
-
       text-transform:uppercase;
 
       color:rgba(255,255,255,.64);
@@ -377,8 +390,7 @@
 
     .logo{
       font-family:"Great Vibes",cursive;
-
-     font-size:clamp(72px,10vw,128px);
+      font-size:clamp(72px,10vw,128px);
 
       line-height:.78;
       letter-spacing:.01em;
@@ -393,12 +405,10 @@
       margin-top:19px;
 
       font-family:"Cormorant Garamond",serif;
-
       font-size:clamp(13px,1.7vw,18px);
 
       letter-spacing:.52em;
       text-indent:.52em;
-
       text-transform:uppercase;
 
       color:rgba(255,220,239,.9);
@@ -406,8 +416,7 @@
 
     .description{
       max-width:620px;
-
-     margin:18px auto 0;
+      margin:18px auto 0;
 
       font-family:"DM Sans",sans-serif;
       font-weight:300;
@@ -418,19 +427,11 @@
       color:var(--soft);
     }
 
-    html[lang="th"] .hero-title,
-    html[lang="th"] .description,
-    html[lang="th"] .cta{
-      font-family:"Noto Sans Thai",sans-serif;
-    }
-
     .hero-title{
-     margin:24px auto 0;
-
+      margin:24px auto 0;
       max-width:760px;
 
       font-family:"Cormorant Garamond",serif;
-
       font-size:clamp(28px,4.5vw,54px);
       font-weight:500;
 
@@ -445,15 +446,19 @@
         0 6px 32px rgba(0,0,0,.35);
     }
 
+    html[lang="th"] .hero-title,
+    html[lang="th"] .description,
+    html[lang="th"] .cta{
+      font-family:"Noto Sans Thai",sans-serif;
+    }
+
     html[lang="th"] .hero-title{
       max-width:720px;
 
       font-size:clamp(27px,4vw,47px);
-
       font-weight:400;
 
       line-height:1.45;
-
       letter-spacing:0;
     }
 
@@ -461,11 +466,9 @@
       max-width:650px;
 
       font-size:clamp(13px,1.45vw,15px);
-
       font-weight:300;
 
       line-height:1.95;
-
       letter-spacing:0;
 
       color:rgba(255,247,252,.72);
@@ -477,12 +480,10 @@
        ========================= */
 
     .cta{
-     margin-top:24px;
-
+      margin-top:24px;
       position:relative;
 
       border:1px solid rgba(255,190,220,.5);
-
       color:#fff;
 
       background:
@@ -493,18 +494,14 @@
         );
 
       border-radius:999px;
-
       padding:15px 30px;
-
       min-width:178px;
 
       cursor:pointer;
 
       font-family:"DM Sans",sans-serif;
-
       font-size:11px;
       letter-spacing:.19em;
-
       text-transform:uppercase;
 
       overflow:hidden;
@@ -530,7 +527,6 @@
         );
 
       transform:translateX(-130%);
-
       transition:transform .7s ease;
     }
 
@@ -552,13 +548,184 @@
 
 
     /* =========================
+       ABOUT MEMORA
+       ========================= */
+
+    .about-page{
+      position:fixed;
+      inset:0;
+      z-index:10;
+
+      padding:100px 28px 45px;
+
+      overflow-y:auto;
+      overscroll-behavior:contain;
+
+      opacity:0;
+      visibility:hidden;
+      pointer-events:none;
+
+      transform:translateY(18px);
+
+      transition:
+        opacity .65s cubic-bezier(.16,1,.3,1),
+        transform .65s cubic-bezier(.16,1,.3,1),
+        visibility .65s;
+    }
+
+    .about-page.active{
+      opacity:1;
+      visibility:visible;
+      pointer-events:auto;
+      transform:none;
+    }
+
+    .about-container{
+      width:min(850px,92vw);
+      min-height:calc(100vh - 145px);
+
+      margin:0 auto;
+
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+
+      text-align:center;
+    }
+
+    .about-eyebrow{
+      margin-bottom:14px;
+
+      font-family:"DM Sans",sans-serif;
+      font-size:10px;
+      letter-spacing:.38em;
+
+      color:rgba(255,255,255,.55);
+    }
+
+    .about-title{
+      margin:0 0 32px;
+
+      font-family:"Cormorant Garamond",serif;
+      font-size:clamp(42px,6vw,74px);
+      font-weight:500;
+
+      line-height:1;
+
+      color:#fff9fd;
+    }
+
+    .about-logo{
+      margin-left:8px;
+
+      font-family:"Great Vibes",cursive;
+      font-size:1.25em;
+      font-weight:400;
+
+      color:#ffd4e9;
+
+      text-shadow:
+        0 0 18px rgba(255,120,183,.35);
+    }
+
+    .about-copy{
+      width:min(700px,100%);
+      margin:0 auto;
+    }
+
+    .about-copy p{
+      margin:0 auto 17px;
+
+      font-family:"DM Sans",sans-serif;
+      font-size:clamp(14px,1.35vw,16px);
+      font-weight:300;
+
+      line-height:1.95;
+
+      color:rgba(255,247,252,.72);
+    }
+
+    .about-copy .about-highlight{
+      margin:26px auto;
+
+      font-size:clamp(17px,1.8vw,21px);
+      font-weight:400;
+
+      color:#fff;
+    }
+
+    .about-quote{
+      width:min(590px,100%);
+
+      margin:32px auto 22px;
+      padding:25px 30px;
+
+      border:1px solid rgba(255,190,220,.18);
+      border-radius:26px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255,120,183,.09),
+          rgba(151,78,215,.06)
+        );
+
+      backdrop-filter:blur(15px);
+      -webkit-backdrop-filter:blur(15px);
+
+      box-shadow:
+        0 20px 70px rgba(0,0,0,.20),
+        inset 0 1px 0 rgba(255,255,255,.05);
+    }
+
+    .quote-heart{
+      display:block;
+      margin-bottom:8px;
+
+      font-size:19px;
+      color:var(--pink2);
+    }
+
+    .about-quote p{
+      margin:0;
+
+      font-family:"Noto Sans Thai",sans-serif;
+      font-size:clamp(17px,2vw,22px);
+      font-weight:400;
+
+      line-height:1.7;
+
+      color:#fff9fd;
+    }
+
+    .about-ending{
+      margin:0;
+
+      font-family:"DM Sans",sans-serif;
+      font-size:11px;
+      letter-spacing:.08em;
+
+      color:rgba(255,255,255,.45);
+    }
+
+    html[lang="th"] .about-title,
+    html[lang="th"] .about-copy p,
+    html[lang="th"] .about-ending{
+      font-family:"Noto Sans Thai",sans-serif;
+    }
+
+    html[lang="th"] .about-logo{
+      font-family:"Great Vibes",cursive;
+    }
+
+
+    /* =========================
        MENU OVERLAY
        ========================= */
 
     .menu-overlay{
       position:fixed;
       inset:0;
-
       z-index:50;
 
       background:rgba(4,1,9,.52);
@@ -626,9 +793,7 @@
 
     .menu-brand{
       font-family:"Cormorant Garamond",serif;
-
       font-size:17px;
-
       letter-spacing:.34em;
     }
 
@@ -637,15 +802,12 @@
       height:46px;
 
       border-radius:50%;
-
       border:1px solid var(--line);
 
       background:rgba(255,255,255,.04);
-
       color:#fff;
 
       font-size:25px;
-
       cursor:pointer;
 
       transition:.3s ease;
@@ -653,7 +815,6 @@
 
     .close:hover{
       transform:rotate(90deg);
-
       background:rgba(255,255,255,.09);
     }
 
@@ -680,19 +841,15 @@
       gap:18px;
 
       color:#fff;
-
       text-decoration:none;
 
       font-family:"Cormorant Garamond",serif;
-
       font-size:clamp(38px,6vw,66px);
 
       line-height:1.15;
-
       padding:8px 0;
 
       opacity:.72;
-
       transform:translateX(-15px);
 
       transition:.35s ease;
@@ -700,13 +857,10 @@
 
     .nav-link small{
       font-family:"DM Sans",sans-serif;
-
       font-size:9px;
-
       letter-spacing:.22em;
 
       color:var(--pink2);
-
       opacity:.8;
     }
 
@@ -719,7 +873,6 @@
       content:"";
 
       position:absolute;
-
       left:0;
       bottom:3px;
 
@@ -735,11 +888,15 @@
       width:72px;
     }
 
+    html[lang="th"] .nav-link{
+      font-family:"Noto Sans Thai",sans-serif;
+      font-size:clamp(30px,5vw,52px);
+      font-weight:400;
+    }
+
     .menu-footer{
       font-family:"DM Sans",sans-serif;
-
       font-size:9px;
-
       letter-spacing:.2em;
 
       color:rgba(255,255,255,.4);
@@ -752,7 +909,6 @@
 
     .click-heart{
       position:fixed;
-
       z-index:100;
 
       width:10px;
@@ -773,8 +929,8 @@
         clickHeart .7s ease-out forwards;
     }
 
-    .click-heart:before,
-    .click-heart:after{
+    .click-heart::before,
+    .click-heart::after{
       content:"";
 
       position:absolute;
@@ -783,16 +939,15 @@
       height:10px;
 
       background:inherit;
-
       border-radius:50%;
     }
 
-    .click-heart:before{
+    .click-heart::before{
       top:-5px;
       left:0;
     }
 
-    .click-heart:after{
+    .click-heart::after{
       left:5px;
       top:0;
     }
@@ -830,7 +985,6 @@
     .flash{
       position:fixed;
       inset:0;
-
       z-index:90;
 
       pointer-events:none;
@@ -860,67 +1014,69 @@
     }
 
 
-  /* =========================
-   MOBILE
-   ========================= */
+    /* =========================
+       MOBILE
+       ========================= */
 
-@media(max-width:700px){
+    @media(max-width:700px){
 
-  .topbar{
-    padding:17px;
-  }
+      .topbar{
+        padding:17px;
+      }
 
-  .logo{
-    font-size:clamp(65px,20vw,105px);
-  }
+      .logo{
+        font-size:clamp(65px,20vw,105px);
+      }
 
-  .sub-logo{
-    letter-spacing:.35em;
-    text-indent:.35em;
-  }
+      .sub-logo{
+        letter-spacing:.35em;
+        text-indent:.35em;
+      }
 
-  .hero-title{
-    max-width:340px;
-  }
+      .hero-title{
+        max-width:340px;
+      }
 
-  .description{
-    max-width:350px;
-  }
+      .description{
+        max-width:350px;
+      }
 
-  .menu-panel{
-    width:88vw;
-  }
+      .menu-panel{
+        width:88vw;
+      }
 
-  .about-page{
-    padding:95px 20px 35px;
-  }
+      .about-page{
+        padding:95px 20px 35px;
+      }
 
-  .about-container{
-    width:100%;
-  }
+      .about-container{
+        width:100%;
+        min-height:calc(100vh - 130px);
+      }
 
-  .about-title{
-    font-size:clamp(38px,12vw,55px);
-    margin-bottom:25px;
-  }
+      .about-title{
+        font-size:clamp(38px,12vw,55px);
+        margin-bottom:25px;
+      }
 
-  .about-copy p{
-    font-size:13.5px;
-    line-height:1.9;
-    margin-bottom:15px;
-  }
+      .about-copy p{
+        font-size:13.5px;
+        line-height:1.9;
+        margin-bottom:15px;
+      }
 
-  .about-copy .about-highlight{
-    font-size:17px;
-    margin:22px 0;
-  }
+      .about-copy .about-highlight{
+        font-size:17px;
+        margin:22px 0;
+      }
 
-  .about-quote{
-    padding:21px 18px;
-    margin-top:27px;
-  }
+      .about-quote{
+        padding:21px 18px;
+        margin-top:27px;
+      }
+    }
 
-}
+
     @media(prefers-reduced-motion:reduce){
 
       *,
@@ -965,8 +1121,6 @@
   </div>
 
 
-  <!-- Cinematic overlay -->
-
   <div class="veil"></div>
 
 
@@ -1004,7 +1158,6 @@
       >
 
         <span id="langCurrent">TH</span>
-
         <span class="chevron">⌄</span>
 
       </button>
@@ -1074,7 +1227,7 @@
         class="description"
         data-i18n="description"
       >
-       "เพราะบางความทรงจำ มีค่ามากเกินกว่าจะเก็บไว้แค่ในรูปถ่าย",
+        ของขวัญออนไลน์สำหรับวันครบรอบ วันเกิด และทุกช่วงเวลาที่อยากเก็บไว้ตลอดไป
       </p>
 
 
@@ -1091,7 +1244,6 @@
 
     </section>
 
-  </main>
   </main>
 
 
@@ -1114,10 +1266,19 @@
         OUR STORY
       </div>
 
+
       <h2 class="about-title">
-        <span data-i18n="aboutTitle">เกี่ยวกับ</span>
-        <span class="about-logo">Memora</span>
+
+        <span data-i18n="aboutTitle">
+          เกี่ยวกับ
+        </span>
+
+        <span class="about-logo">
+          Memora
+        </span>
+
       </h2>
+
 
       <div class="about-copy">
 
@@ -1126,10 +1287,8 @@
         </p>
 
         <p data-i18n="aboutP2">
-          คุณเคยรู้สึกไหมว่า เวลาจะหาของขวัญให้แฟน
-          เราก็มักจะวนกลับไปที่ของเดิม ๆ
-          ดอกไม้ ตุ๊กตา น้ำหอม หรือของขวัญที่สวยมาก
-          แต่สุดท้ายก็ยังเป็นเพียงสิ่งของชิ้นหนึ่ง
+          คุณเคยรู้สึกไหมว่า เวลาจะหาของขวัญให้แฟน เราก็มักจะวนกลับไปที่ของเดิม ๆ
+          ดอกไม้ ตุ๊กตา น้ำหอม หรือของขวัญที่สวยมาก แต่สุดท้ายก็ยังเป็นเพียงสิ่งของชิ้นหนึ่ง
         </p>
 
         <p
@@ -1140,16 +1299,14 @@
         </p>
 
         <p data-i18n="aboutP4">
-          เราอยากเปลี่ยนความทรงจำของคุณสองคน
-          ให้กลายเป็นเว็บไซต์ของขวัญส่วนตัว
+          เราอยากเปลี่ยนความทรงจำของคุณสองคนให้กลายเป็นเว็บไซต์ของขวัญส่วนตัว
           ที่มีเรื่องราวของคุณอยู่ในนั้น
         </p>
 
         <p data-i18n="aboutP5">
-          เว็บไซต์ที่คุณสามารถใส่รูปความทรงจำ
-          เขียนข้อความถึงคนพิเศษ เพิ่มเพลงที่มีความหมาย
-          นับวันที่อยู่ด้วยกัน รวมถึงมีกิจกรรมและคำถามเล็ก ๆ
-          ให้คุณกับแฟนได้เล่นด้วยกัน
+          เว็บไซต์ที่คุณสามารถใส่รูปความทรงจำ เขียนข้อความถึงคนพิเศษ
+          เพิ่มเพลงที่มีความหมาย นับวันที่อยู่ด้วยกัน
+          รวมถึงมีกิจกรรมและคำถามเล็ก ๆ ให้คุณกับแฟนได้เล่นด้วยกัน
         </p>
 
         <p data-i18n="aboutP6">
@@ -1162,7 +1319,9 @@
 
       <div class="about-quote">
 
-        <span class="quote-heart">♡</span>
+        <span class="quote-heart">
+          ♡
+        </span>
 
         <p data-i18n="aboutQuote">
           “ทั้งหมดนี้ถูกทำขึ้นมาเพื่อฉันจริง ๆ”
@@ -1181,6 +1340,7 @@
     </div>
 
   </section>
+
 
   <!-- =========================
        MENU
@@ -1216,54 +1376,54 @@
       </div>
 
 
-     <nav class="nav">
+      <nav class="nav">
 
-  <a
-    class="nav-link"
-    href="#"
-    data-route="home"
-  >
-    <small>01</small>
-    <span data-i18n="home">หน้าแรก</span>
-  </a>
+        <a
+          class="nav-link"
+          href="#"
+          data-route="home"
+        >
+          <small>01</small>
+          <span data-i18n="home">หน้าแรก</span>
+        </a>
 
-  <a
-    class="nav-link"
-    href="#about"
-    data-route="about"
-  >
-    <small>02</small>
-    <span data-i18n="about">เกี่ยวกับ Memora</span>
-  </a>
+        <a
+          class="nav-link"
+          href="#about"
+          data-route="about"
+        >
+          <small>02</small>
+          <span data-i18n="about">เกี่ยวกับ Memora</span>
+        </a>
 
-  <a
-    class="nav-link"
-    href="#products"
-    data-route="products"
-  >
-    <small>03</small>
-    <span data-i18n="products">ของขวัญ</span>
-  </a>
+        <a
+          class="nav-link"
+          href="products.html"
+        >
+          <small>03</small>
+          <span data-i18n="products">ของขวัญ</span>
+        </a>
 
-  <a
-    class="nav-link"
-    href="#reviews"
-    data-route="reviews"
-  >
-    <small>04</small>
-    <span data-i18n="reviews">รีวิว</span>
-  </a>
+        <a
+          class="nav-link"
+          href="#reviews"
+          data-route="reviews"
+        >
+          <small>04</small>
+          <span data-i18n="reviews">รีวิว</span>
+        </a>
 
-  <a
-    class="nav-link"
-    href="#faq"
-    data-route="faq"
-  >
-    <small>05</small>
-    <span data-i18n="faq">คำถามที่พบบ่อย</span>
-  </a>
+        <a
+          class="nav-link"
+          href="#faq"
+          data-route="faq"
+        >
+          <small>05</small>
+          <span data-i18n="faq">คำถามที่พบบ่อย</span>
+        </a>
 
-</nav>
+      </nav>
+
 
       <div class="menu-footer">
         EVERY MOMENT, FOREVER MEMORABLE
@@ -1292,7 +1452,8 @@
     const translations = {
 
       th:{
-        eyebrow:"DIGITAL GIFTS • MADE WITH LOVE",
+        eyebrow:
+          "DIGITAL GIFTS • MADE WITH LOVE",
 
         heroTitle:
           "เปลี่ยนความทรงจำของคุณ ให้กลายเป็นของขวัญดิจิทัลที่มีเพียงหนึ่งเดียว",
@@ -1300,103 +1461,120 @@
         description:
           "ของขวัญออนไลน์สำหรับวันครบรอบ วันเกิด และทุกช่วงเวลาที่อยากเก็บไว้ตลอดไป",
 
-        cta:"ค้นพบของขวัญ",
+        cta:
+          "ค้นพบของขวัญ",
 
-        home:"หน้าแรก",
+        home:
+          "หน้าแรก",
 
-        products:"ของขวัญ",
+        about:
+          "เกี่ยวกับ Memora",
 
-        reviews:"รีวิว",
+        products:
+          "ของขวัญ",
 
-        faq:"คำถามที่พบบ่อย"
-          
-        about:"เกี่ยวกับ Memora",
+        reviews:
+          "รีวิว",
 
-aboutEyebrow:"OUR STORY",
+        faq:
+          "คำถามที่พบบ่อย",
 
-aboutTitle:"เกี่ยวกับ",
+        aboutEyebrow:
+          "OUR STORY",
 
-aboutP1:
-  "เราอยากสร้างของขวัญวันครบรอบที่ให้ความรู้สึกพิเศษมากกว่าเดิม",
+        aboutTitle:
+          "เกี่ยวกับ",
 
-aboutP2:
-  "คุณเคยรู้สึกไหมว่า เวลาจะหาของขวัญให้แฟน เราก็มักจะวนกลับไปที่ของเดิม ๆ ดอกไม้ ตุ๊กตา น้ำหอม หรือของขวัญที่สวยมาก แต่สุดท้ายก็ยังเป็นเพียงสิ่งของชิ้นหนึ่ง",
+        aboutP1:
+          "เราอยากสร้างของขวัญวันครบรอบที่ให้ความรู้สึกพิเศษมากกว่าเดิม",
 
-aboutP3:
-  "Memora เลยเกิดขึ้นมาเพื่อเป็นอีกหนึ่งตัวเลือกสำหรับคุณ",
+        aboutP2:
+          "คุณเคยรู้สึกไหมว่า เวลาจะหาของขวัญให้แฟน เราก็มักจะวนกลับไปที่ของเดิม ๆ ดอกไม้ ตุ๊กตา น้ำหอม หรือของขวัญที่สวยมาก แต่สุดท้ายก็ยังเป็นเพียงสิ่งของชิ้นหนึ่ง",
 
-aboutP4:
-  "เราอยากเปลี่ยนความทรงจำของคุณสองคนให้กลายเป็นเว็บไซต์ของขวัญส่วนตัว ที่มีเรื่องราวของคุณอยู่ในนั้น",
+        aboutP3:
+          "Memora เลยเกิดขึ้นมาเพื่อเป็นอีกหนึ่งตัวเลือกสำหรับคุณ",
 
-aboutP5:
-  "เว็บไซต์ที่คุณสามารถใส่รูปความทรงจำ เขียนข้อความถึงคนพิเศษ เพิ่มเพลงที่มีความหมาย นับวันที่อยู่ด้วยกัน รวมถึงมีกิจกรรมและคำถามเล็ก ๆ ให้คุณกับแฟนได้เล่นด้วยกัน",
+        aboutP4:
+          "เราอยากเปลี่ยนความทรงจำของคุณสองคนให้กลายเป็นเว็บไซต์ของขวัญส่วนตัว ที่มีเรื่องราวของคุณอยู่ในนั้น",
 
-aboutP6:
-  "เราอยากให้ Memora เป็นมากกว่าแค่ของขวัญดิจิทัล แต่เป็นพื้นที่เล็ก ๆ ที่เก็บเรื่องราวของคุณสองคนเอาไว้ในที่เดียว",
+        aboutP5:
+          "เว็บไซต์ที่คุณสามารถใส่รูปความทรงจำ เขียนข้อความถึงคนพิเศษ เพิ่มเพลงที่มีความหมาย นับวันที่อยู่ด้วยกัน รวมถึงมีกิจกรรมและคำถามเล็ก ๆ ให้คุณกับแฟนได้เล่นด้วยกัน",
 
-aboutQuote:
-  "“ทั้งหมดนี้ถูกทำขึ้นมาเพื่อฉันจริง ๆ”",
+        aboutP6:
+          "เราอยากให้ Memora เป็นมากกว่าแค่ของขวัญดิจิทัล แต่เป็นพื้นที่เล็ก ๆ ที่เก็บเรื่องราวของคุณสองคนเอาไว้ในที่เดียว",
 
-aboutEnding:
-  "เว็บไซต์วันครบรอบที่เต็มไปด้วยความทรงจำของคุณสองคน",
+        aboutQuote:
+          "“ทั้งหมดนี้ถูกทำขึ้นมาเพื่อฉันจริง ๆ”",
+
+        aboutEnding:
+          "เว็บไซต์วันครบรอบที่เต็มไปด้วยความทรงจำของคุณสองคน"
       },
 
 
       en:{
-        eyebrow:"DIGITAL GIFTS • MADE WITH LOVE",
+        eyebrow:
+          "DIGITAL GIFTS • MADE WITH LOVE",
 
         heroTitle:
-           "Because some memories are too precious to live only in photographs.",
+          "Because some memories are too precious to live only in photographs.",
 
         description:
           "Online gifts for anniversaries, birthdays, and every moment worth remembering.",
 
-        cta:"Discover gifts",
+        cta:
+          "Discover gifts",
 
-        home:"Home",
+        home:
+          "Home",
 
-        products:"Gifts",
+        about:
+          "About Memora",
 
-        reviews:"Reviews",
+        products:
+          "Gifts",
 
-        faq:"FAQ"
+        reviews:
+          "Reviews",
 
-    about:"About Memora",
+        faq:
+          "FAQ",
 
-aboutEyebrow:"OUR STORY",
+        aboutEyebrow:
+          "OUR STORY",
 
-aboutTitle:"About",
+        aboutTitle:
+          "About",
 
-aboutP1:
-  "We wanted to create an anniversary gift that feels a little more special.",
+        aboutP1:
+          "We wanted to create an anniversary gift that feels a little more special.",
 
-aboutP2:
-  "Have you ever tried to find a gift for your partner, only to end up choosing from the same things again and again — flowers, plush toys, perfume, or another beautiful gift that eventually becomes just another object?",
+        aboutP2:
+          "Have you ever tried to find a gift for your partner, only to end up choosing from the same things again and again — flowers, plush toys, perfume, or another beautiful gift that eventually becomes just another object?",
 
-aboutP3:
-  "That is why we created Memora.",
+        aboutP3:
+          "That is why we created Memora.",
 
-aboutP4:
-  "We wanted to turn your memories together into a personal gift website filled with your own story.",
+        aboutP4:
+          "We wanted to turn your memories together into a personal gift website filled with your own story.",
 
-aboutP5:
-  "A website where you can add your favorite photos, write a letter to someone special, choose a meaningful song, count the days you have shared, and enjoy little questions and activities together.",
+        aboutP5:
+          "A website where you can add your favorite photos, write a letter to someone special, choose a meaningful song, count the days you have shared, and enjoy little questions and activities together.",
 
-aboutP6:
-  "We want Memora to be more than a digital gift. We want it to be a little place where the story of the two of you can live together.",
+        aboutP6:
+          "We want Memora to be more than a digital gift. We want it to be a little place where the story of the two of you can live together.",
 
-aboutQuote:
-  "“All of this was made just for me.”",
+        aboutQuote:
+          "“All of this was made just for me.”",
 
-aboutEnding:
-  "An anniversary website filled with memories that belong to the two of you.",
-        
+        aboutEnding:
+          "An anniversary website filled with memories that belong to the two of you."
+      }
 
     };
 
 
-    const $ = s =>
-      document.querySelector(s);
+    const $ = selector =>
+      document.querySelector(selector);
 
 
     const menuOverlay =
@@ -1417,6 +1595,16 @@ aboutEnding:
     const flash =
       $("#flash");
 
+    const hero =
+      document.querySelector(".hero");
+
+    const aboutPage =
+      document.querySelector("#aboutPage");
+
+
+    /* =========================
+       LANGUAGE
+       ========================= */
 
     function setLanguage(code){
 
@@ -1450,316 +1638,4 @@ aboutEnding:
 
       document
         .querySelectorAll(".lang-option")
-        .forEach(b=>{
-
-          b.classList.toggle(
-            "active",
-            b.dataset.lang === code
-          );
-
-        });
-
-
-      localStorage.setItem(
-        "memora-language",
-        code
-      );
-
-
-      lang.classList.remove("open");
-
-      langButton.setAttribute(
-        "aria-expanded",
-        "false"
-      );
-
-    }
-
-
-    setLanguage(
-      localStorage.getItem("memora-language") ||
-      "th"
-    );
-
-
-    langButton.addEventListener(
-      "click",
-      e=>{
-
-        e.stopPropagation();
-
-        const open =
-          lang.classList.toggle("open");
-
-        langButton.setAttribute(
-          "aria-expanded",
-          String(open)
-        );
-
-      }
-    );
-
-
-    document
-      .querySelectorAll(".lang-option")
-      .forEach(b=>{
-
-        b.addEventListener(
-          "click",
-          ()=>setLanguage(
-            b.dataset.lang
-          )
-        );
-
-      });
-
-
-    function openMenu(){
-
-      menuOverlay.classList.add("open");
-
-      menuOverlay.setAttribute(
-        "aria-hidden",
-        "false"
-      );
-
-      menuButton.setAttribute(
-        "aria-expanded",
-        "true"
-      );
-
-    }
-
-
-    function hideMenu(){
-
-      menuOverlay.classList.remove("open");
-
-      menuOverlay.setAttribute(
-        "aria-hidden",
-        "true"
-      );
-
-      menuButton.setAttribute(
-        "aria-expanded",
-        "false"
-      );
-
-    }
-
-
-    menuButton.addEventListener(
-      "click",
-      openMenu
-    );
-
-
-    closeMenu.addEventListener(
-      "click",
-      hideMenu
-    );
-
-
-    menuOverlay.addEventListener(
-      "click",
-      e=>{
-
-        if(e.target === menuOverlay){
-          hideMenu();
-        }
-
-      }
-    );
-
-
-    document.addEventListener(
-      "keydown",
-      e=>{
-
-        if(e.key === "Escape"){
-
-          hideMenu();
-
-          lang.classList.remove("open");
-
-        }
-
-      }
-    );
-
-
-    document.addEventListener(
-      "click",
-      e=>{
-
-        if(!lang.contains(e.target)){
-
-          lang.classList.remove("open");
-
-          langButton.setAttribute(
-            "aria-expanded",
-            "false"
-          );
-
-        }
-
-      }
-    );
-
-
-    function transitionTo(hash){
-
-   const hero =
-  document.querySelector(".hero");
-
-const aboutPage =
-  document.querySelector("#aboutPage");
-
-
-function renderRoute(hash){
-
-  const route =
-    (hash || "")
-      .replace("#","");
-
-
-  const isAbout =
-    route === "about";
-
-
-  hero.classList.toggle(
-    "page-hidden",
-    isAbout
-  );
-
-
-  aboutPage.classList.toggle(
-    "active",
-    isAbout
-  );
-
-
-  aboutPage.setAttribute(
-    "aria-hidden",
-    String(!isAbout)
-  );
-
-}
-
-
-function transitionTo(hash){
-
-  flash.classList.add("on");
-
-
-  setTimeout(()=>{
-
-    const target =
-      hash || "";
-
-
-    if(target){
-
-      history.pushState(
-        {},
-        "",
-        target
-      );
-
-    }else{
-
-      history.pushState(
-        {},
-        "",
-        location.pathname
-      );
-
-    }
-
-
-    renderRoute(target);
-
-
-    flash.classList.remove("on");
-
-  },260);
-
-}
-
-
-renderRoute(location.hash);
-
-
-window.addEventListener(
-  "popstate",
-  ()=>{
-    renderRoute(location.hash);
-  }
-);
-    document
-      .querySelectorAll("[data-route]")
-      .forEach(link=>{
-
-        link.addEventListener(
-          "click",
-          e=>{
-
-            e.preventDefault();
-
-            hideMenu();
-
-            transitionTo(
-              link.getAttribute("href")
-            );
-
-          }
-        );
-
-      });
-
-
-    document.addEventListener(
-      "pointerdown",
-      e=>{
-
-        if(
-          e.pointerType === "mouse" &&
-          e.button !== 0
-        ){
-          return;
-        }
-
-
-        const h =
-          document.createElement("span");
-
-
-        h.className =
-          "click-heart";
-
-
-        h.style.left =
-          e.clientX + "px";
-
-
-        h.style.top =
-          e.clientY + "px";
-
-
-        document.body.appendChild(h);
-
-
-        h.addEventListener(
-          "animationend",
-          ()=>h.remove(),
-          {once:true}
-        );
-
-      },
-      {passive:true}
-    );
-
-  </script>
-
-</body>
-</html>
+        .forEach(button=>{
