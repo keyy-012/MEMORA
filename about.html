@@ -1,1 +1,883 @@
+<!doctype html>
 
+<html lang="th">
+
+<head>
+
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width,initial-scale=1"
+  >
+
+  <title>เกี่ยวกับ Memora | Memora</title>
+
+  <meta
+    name="description"
+    content="รู้จัก Memora เว็บไซต์ของขวัญดิจิทัลที่เปลี่ยนความทรงจำของคุณสองคนให้กลายเป็นของขวัญวันครบรอบที่มีเพียงหนึ่งเดียว"
+  >
+
+  <meta name="theme-color" content="#09030f">
+
+  <style>
+
+    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Noto+Sans+Thai:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap');
+
+
+    :root{
+      --bg:#09030f;
+
+      --white:#fff8fc;
+
+      --soft:
+        rgba(255,248,252,.72);
+
+      --muted:
+        rgba(255,248,252,.48);
+
+      --pink:#ff78b7;
+
+      --pink2:#ffc0df;
+
+      --purple:#a868dc;
+
+      --line:
+        rgba(255,255,255,.14);
+
+      --glass:
+        rgba(12,5,19,.34);
+    }
+
+
+    *{
+      box-sizing:border-box;
+    }
+
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+
+    body{
+      margin:0;
+
+      min-height:100vh;
+
+      color:var(--white);
+
+      background:#09030f;
+
+      font-family:
+        "Noto Sans Thai",
+        "Plus Jakarta Sans",
+        sans-serif;
+
+      -webkit-font-smoothing:
+        antialiased;
+    }
+
+
+    /* =========================
+       BACKGROUND
+       ========================= */
+
+    .background{
+      position:fixed;
+
+      inset:0;
+
+      z-index:-3;
+
+      overflow:hidden;
+
+      background:#09030f;
+    }
+
+
+    .background video{
+      width:100%;
+      height:100%;
+
+      object-fit:cover;
+
+      object-position:center;
+
+      display:block;
+
+      opacity:.38;
+    }
+
+
+    .veil{
+      position:fixed;
+
+      inset:0;
+
+      z-index:-2;
+
+      pointer-events:none;
+
+      background:
+
+        radial-gradient(
+          circle at 50% 18%,
+          rgba(255,106,180,.13),
+          transparent 34%
+        ),
+
+        radial-gradient(
+          circle at 18% 70%,
+          rgba(146,74,209,.10),
+          transparent 38%
+        ),
+
+        linear-gradient(
+          to bottom,
+          rgba(4,1,9,.48),
+          rgba(9,3,15,.72) 45%,
+          rgba(9,3,15,.93)
+        );
+    }
+
+
+    .glow{
+      position:fixed;
+
+      left:50%;
+      top:180px;
+
+      width:min(700px,80vw);
+      height:300px;
+
+      transform:
+        translateX(-50%);
+
+      border-radius:50%;
+
+      background:
+        radial-gradient(
+          ellipse at center,
+          rgba(255,115,184,.15),
+          rgba(159,77,216,.07) 45%,
+          transparent 72%
+        );
+
+      filter:blur(35px);
+
+      z-index:-1;
+
+      pointer-events:none;
+    }
+
+
+    /* =========================
+       TOP BAR
+       ========================= */
+
+    .topbar{
+      position:fixed;
+
+      top:0;
+      left:0;
+      right:0;
+
+      z-index:20;
+
+      display:flex;
+
+      align-items:center;
+
+      justify-content:
+        space-between;
+
+      padding:
+        22px
+        28px;
+    }
+
+
+    .back{
+      display:inline-flex;
+
+      align-items:center;
+
+      justify-content:center;
+
+      gap:9px;
+
+      min-height:48px;
+
+      padding:
+        0
+        18px;
+
+      border:
+        1px solid
+        rgba(255,255,255,.17);
+
+      border-radius:999px;
+
+      background:
+        rgba(8,3,14,.34);
+
+      backdrop-filter:
+        blur(18px);
+
+      -webkit-backdrop-filter:
+        blur(18px);
+
+      color:#fff;
+
+      text-decoration:none;
+
+      font-family:
+        "Noto Sans Thai",
+        "Plus Jakarta Sans",
+        sans-serif;
+
+      font-size:12px;
+
+      font-weight:400;
+
+      transition:
+        transform .3s ease,
+        background .3s ease,
+        border-color .3s ease;
+    }
+
+
+    .back:hover{
+      transform:
+        translateX(-3px);
+
+      background:
+        rgba(255,255,255,.08);
+
+      border-color:
+        rgba(255,190,220,.35);
+    }
+
+
+    .brand{
+      font-family:
+        "Great Vibes",
+        cursive;
+
+      font-size:42px;
+
+      line-height:1;
+
+      color:#fff;
+
+      text-shadow:
+        0 0 15px rgba(255,120,183,.42),
+        0 0 36px rgba(255,120,183,.15);
+    }
+
+
+    /* =========================
+       ABOUT
+       ========================= */
+
+    .about{
+      width:
+        min(760px,88vw);
+
+      margin:
+        0 auto;
+
+      padding:
+        145px
+        0
+        100px;
+
+      text-align:center;
+    }
+
+
+    .eyebrow{
+      font-family:
+        "Plus Jakarta Sans",
+        sans-serif;
+
+      font-size:10px;
+
+      font-weight:500;
+
+      letter-spacing:.36em;
+
+      text-transform:uppercase;
+
+      color:
+        rgba(255,255,255,.48);
+
+      margin-bottom:18px;
+    }
+
+
+    .about-title{
+      margin:0;
+
+      font-family:
+        "Noto Sans Thai",
+        "Plus Jakarta Sans",
+        sans-serif;
+
+      font-size:
+        clamp(34px,5vw,54px);
+
+      font-weight:400;
+
+      line-height:1.35;
+
+      letter-spacing:-.025em;
+
+      color:#fff;
+    }
+
+
+    .memora{
+      display:block;
+
+      margin-top:2px;
+
+      font-family:
+        "Great Vibes",
+        cursive;
+
+      font-size:
+        clamp(76px,10vw,112px);
+
+      font-weight:400;
+
+      line-height:1;
+
+      letter-spacing:0;
+
+      color:#fff8fc;
+
+      text-shadow:
+        0 0 14px rgba(255,120,183,.46),
+        0 0 44px rgba(255,120,183,.17),
+        0 14px 45px rgba(0,0,0,.32);
+    }
+
+
+    .divider{
+      width:70px;
+
+      height:1px;
+
+      margin:
+        34px auto
+        42px;
+
+      background:
+        linear-gradient(
+          to right,
+          transparent,
+          rgba(255,120,183,.85),
+          transparent
+        );
+    }
+
+
+    /* =========================
+       COPY
+       ========================= */
+
+    .copy{
+      max-width:680px;
+
+      margin:0 auto;
+
+      text-align:left;
+
+      font-family:
+        "Noto Sans Thai",
+        "Plus Jakarta Sans",
+        sans-serif;
+
+      font-size:
+        clamp(14px,1.4vw,15.5px);
+
+      font-weight:300;
+
+      line-height:2;
+
+      color:var(--soft);
+    }
+
+
+    .copy p{
+      margin:
+        0
+        0
+        22px;
+    }
+
+
+    .highlight{
+      position:relative;
+
+      margin:
+        42px 0 !important;
+
+      text-align:center;
+
+      color:#fff;
+
+      font-size:
+        clamp(18px,2.4vw,22px);
+
+      font-weight:500;
+
+      line-height:1.7;
+    }
+
+
+    .highlight::before{
+      content:"";
+
+      position:absolute;
+
+      left:50%;
+      top:50%;
+
+      width:
+        min(500px,80vw);
+
+      height:100px;
+
+      transform:
+        translate(-50%,-50%);
+
+      background:
+        radial-gradient(
+          ellipse at center,
+          rgba(255,107,181,.10),
+          transparent 70%
+        );
+
+      filter:blur(16px);
+
+      z-index:-1;
+    }
+
+
+    /* =========================
+       QUOTE
+       ========================= */
+
+    .quote{
+      position:relative;
+
+      max-width:620px;
+
+      margin:
+        50px auto
+        0;
+
+      padding:
+        32px
+        30px;
+
+      border:
+        1px solid
+        rgba(255,184,220,.20);
+
+      border-radius:28px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,120,183,.08),
+          rgba(120,56,178,.05)
+        );
+
+      backdrop-filter:
+        blur(18px);
+
+      -webkit-backdrop-filter:
+        blur(18px);
+
+      box-shadow:
+        0 26px 80px
+        rgba(0,0,0,.18);
+    }
+
+
+    .heart{
+      font-family:
+        "Plus Jakarta Sans",
+        sans-serif;
+
+      font-size:20px;
+
+      color:var(--pink2);
+
+      text-shadow:
+        0 0 14px
+        rgba(255,120,183,.6);
+    }
+
+
+    .quote p{
+      margin:
+        13px 0 0;
+
+      font-family:
+        "Noto Sans Thai",
+        "Plus Jakarta Sans",
+        sans-serif;
+
+      font-size:
+        clamp(18px,2.5vw,24px);
+
+      font-weight:400;
+
+      line-height:1.7;
+
+      color:#fff;
+    }
+
+
+    /* =========================
+       ENDING
+       ========================= */
+
+    .ending{
+      max-width:610px;
+
+      margin:
+        45px auto
+        0;
+
+      font-family:
+        "Noto Sans Thai",
+        "Plus Jakarta Sans",
+        sans-serif;
+
+      font-size:14px;
+
+      font-weight:300;
+
+      line-height:1.9;
+
+      color:
+        rgba(255,248,252,.58);
+    }
+
+
+    /* =========================
+       SMALL DECORATION
+       ========================= */
+
+    .spark{
+      display:inline-block;
+
+      color:var(--pink2);
+
+      margin:
+        0
+        4px;
+
+      opacity:.85;
+    }
+
+
+    /* =========================
+       MOBILE
+       ========================= */
+
+    @media(max-width:700px){
+
+      .topbar{
+        padding:16px;
+      }
+
+
+      .brand{
+        font-size:35px;
+      }
+
+
+      .back{
+        min-height:43px;
+
+        padding:
+          0
+          14px;
+
+        font-size:10.5px;
+      }
+
+
+      .about{
+        width:88vw;
+
+        padding-top:115px;
+
+        padding-bottom:65px;
+      }
+
+
+      .eyebrow{
+        font-size:9px;
+
+        letter-spacing:.30em;
+      }
+
+
+      .about-title{
+        font-size:
+          clamp(30px,9vw,40px);
+      }
+
+
+      .memora{
+        font-size:
+          clamp(68px,21vw,94px);
+      }
+
+
+      .divider{
+        margin:
+          27px auto
+          32px;
+      }
+
+
+      .copy{
+        font-size:13.5px;
+
+        line-height:1.95;
+      }
+
+
+      .copy p{
+        margin-bottom:18px;
+      }
+
+
+      .highlight{
+        margin:
+          34px 0 !important;
+
+        font-size:17px;
+      }
+
+
+      .quote{
+        margin-top:40px;
+
+        padding:
+          25px
+          20px;
+
+        border-radius:23px;
+      }
+
+
+      .quote p{
+        font-size:17px;
+      }
+
+
+      .ending{
+        margin-top:35px;
+
+        font-size:13px;
+      }
+
+    }
+
+
+    @media(prefers-reduced-motion:reduce){
+
+      *,
+      *::before,
+      *::after{
+        transition:none!important;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <!-- =========================
+       BACKGROUND
+       ========================= -->
+
+  <div class="background">
+
+    <video
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="auto"
+      poster="memora-waterfall.png"
+      aria-hidden="true"
+    >
+
+      <source
+        src="memora-waterfall.mp4"
+        type="video/mp4"
+      >
+
+    </video>
+
+  </div>
+
+
+  <div class="veil"></div>
+
+  <div class="glow"></div>
+
+
+  <!-- =========================
+       TOP BAR
+       ========================= -->
+
+  <header class="topbar">
+
+    <a
+      class="back"
+      href="index.html"
+    >
+      ← หน้าแรก
+    </a>
+
+
+    <div class="brand">
+      Memora
+    </div>
+
+  </header>
+
+
+  <!-- =========================
+       ABOUT MEMORA
+       ========================= -->
+
+  <main class="about">
+
+
+    <div class="eyebrow">
+      OUR STORY
+    </div>
+
+
+    <h1 class="about-title">
+
+      เกี่ยวกับ
+
+      <span class="memora">
+        Memora
+      </span>
+
+    </h1>
+
+
+    <div class="divider"></div>
+
+
+    <div class="copy">
+
+
+      <p>
+        เราอยากสร้างของขวัญวันครบรอบที่ให้ความรู้สึกพิเศษมากกว่าเดิม
+      </p>
+
+
+      <p>
+        คุณเคยรู้สึกไหมว่า เวลาจะหาของขวัญให้แฟน
+        เราก็มักจะวนกลับไปที่ของเดิม ๆ
+        ดอกไม้ ตุ๊กตา น้ำหอม หรือของขวัญที่สวยมาก
+        แต่สุดท้ายก็ยังเป็นเพียงสิ่งของชิ้นหนึ่ง
+      </p>
+
+
+      <p class="highlight">
+        Memora เลยเกิดขึ้นมาเพื่อเป็นอีกหนึ่งตัวเลือกสำหรับคุณ
+      </p>
+
+
+      <p>
+        เราอยากเปลี่ยนความทรงจำของคุณสองคน
+        ให้กลายเป็นเว็บไซต์ของขวัญส่วนตัว
+        ที่มีเรื่องราวของคุณอยู่ในนั้น
+      </p>
+
+
+      <p>
+        เว็บไซต์ที่คุณสามารถใส่รูปความทรงจำ
+        เขียนข้อความถึงคนพิเศษ
+        เพิ่มเพลงที่มีความหมาย
+        นับวันที่อยู่ด้วยกัน
+        รวมถึงมีกิจกรรมและคำถามเล็ก ๆ
+        ให้คุณกับแฟนได้เล่นด้วยกัน
+      </p>
+
+
+      <p>
+        เราอยากให้ Memora เป็นมากกว่าแค่ของขวัญดิจิทัล
+        แต่เป็นพื้นที่เล็ก ๆ
+        ที่เก็บเรื่องราวของคุณสองคนเอาไว้ในที่เดียว
+      </p>
+
+
+    </div>
+
+
+    <div class="quote">
+
+      <div class="heart">
+        ♡
+      </div>
+
+
+      <p>
+        “ทั้งหมดนี้ถูกทำขึ้นมาเพื่อฉันจริง ๆ”
+      </p>
+
+    </div>
+
+
+    <p class="ending">
+
+      เพราะสำหรับเรา ของขวัญที่พิเศษที่สุด
+      อาจไม่ใช่ของที่แพงที่สุด
+
+      <br><br>
+
+      แต่เป็นของขวัญที่ทำให้ใครสักคนรู้สึกว่า
+      ทั้งหมดนี้ถูกสร้างขึ้นมาเพื่อเขาจริง ๆ
+
+      <br><br>
+
+      <span class="spark">✦</span>
+
+      เว็บไซต์วันครบรอบที่เต็มไปด้วย
+      ความทรงจำของคุณสองคน
+
+      <span class="spark">✦</span>
+
+    </p>
+
+
+  </main>
+
+
+</body>
+
+</html>
