@@ -1246,11 +1246,9 @@ data-route="about"
   </a>
 
 <a
-class="nav-link"
-href="#products"
-data-route="products"
-
-
+  class="nav-link"
+  href="products.html"
+>
 
 <small>03</small>
 
@@ -1327,7 +1325,7 @@ data-route="faq"
 
         reviews:"รีวิว",
 
-        faq:"คำถามที่พบบ่อย"
+        faq:"คำถามที่พบบ่อย",
           
         about:"เกี่ยวกับ Memora",
 
@@ -1378,7 +1376,7 @@ aboutEnding:
 
         reviews:"Reviews",
 
-        faq:"FAQ"
+        faq:"FAQ",
 
     about:"About Memora",
 
@@ -1410,6 +1408,7 @@ aboutQuote:
 aboutEnding:
   "An anniversary website filled with memories that belong to the two of you.",
         
+           }
 
     };
 
@@ -1668,14 +1667,49 @@ function renderRoute(hash){
 
 function transitionTo(hash){
 
-  flash.classList.add("on");
+ 
 
+   const hero =
+  document.querySelector(".hero");
+
+const aboutPage =
+  document.querySelector("#aboutPage");
+
+
+function renderRoute(hash){
+
+  const route =
+    (hash || "").replace("#","");
+
+  const isAbout =
+    route === "about";
+
+  hero.classList.toggle(
+    "page-hidden",
+    isAbout
+  );
+
+  aboutPage.classList.toggle(
+    "active",
+    isAbout
+  );
+
+  aboutPage.setAttribute(
+    "aria-hidden",
+    String(!isAbout)
+  );
+
+}
+
+
+function transitionTo(hash){
+
+  flash.classList.add("on");
 
   setTimeout(()=>{
 
     const target =
       hash || "";
-
 
     if(target){
 
@@ -1695,9 +1729,7 @@ function transitionTo(hash){
 
     }
 
-
     renderRoute(target);
-
 
     flash.classList.remove("on");
 
@@ -1715,6 +1747,14 @@ window.addEventListener(
     renderRoute(location.hash);
   }
 );
+  
+  $("#explore").addEventListener(
+  "click",
+  ()=>{
+    window.location.href = "products.html";
+  }
+);
+  
     document
       .querySelectorAll("[data-route]")
       .forEach(link=>{
