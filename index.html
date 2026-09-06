@@ -1609,32 +1609,93 @@ aboutEnding:
 
     function transitionTo(hash){
 
-      flash.classList.add("on");
+   const hero =
+  document.querySelector(".hero");
+
+const aboutPage =
+  document.querySelector("#aboutPage");
 
 
-      setTimeout(()=>{
+function renderRoute(hash){
 
-        history.pushState(
-          {},
-          "",
-          hash || location.pathname
-        );
+  const route =
+    (hash || "")
+      .replace("#","");
 
-        flash.classList.remove("on");
 
-      },260);
+  const isAbout =
+    route === "about";
+
+
+  hero.classList.toggle(
+    "page-hidden",
+    isAbout
+  );
+
+
+  aboutPage.classList.toggle(
+    "active",
+    isAbout
+  );
+
+
+  aboutPage.setAttribute(
+    "aria-hidden",
+    String(!isAbout)
+  );
+
+}
+
+
+function transitionTo(hash){
+
+  flash.classList.add("on");
+
+
+  setTimeout(()=>{
+
+    const target =
+      hash || "";
+
+
+    if(target){
+
+      history.pushState(
+        {},
+        "",
+        target
+      );
+
+    }else{
+
+      history.pushState(
+        {},
+        "",
+        location.pathname
+      );
 
     }
 
 
-   $("#explore").addEventListener(
-  "click",
+    renderRoute(target);
+
+
+    flash.classList.remove("on");
+
+  },260);
+
+}
+
+
+renderRoute(location.hash);
+
+
+window.addEventListener(
+  "popstate",
   ()=>{
-    window.location.href = "products.html";
+    renderRoute(location.hash);
   }
 );
-
-
     document
       .querySelectorAll("[data-route]")
       .forEach(link=>{
