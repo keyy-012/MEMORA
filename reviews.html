@@ -1,1 +1,1208 @@
+<!doctype html>
 
+<html lang="th">
+
+<head>
+
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width,initial-scale=1"
+  >
+
+  <title>รีวิว | Memora</title>
+
+  <meta
+    name="description"
+    content="รีวิวและความรู้สึกจากลูกค้าที่เลือก Memora เป็นของขวัญดิจิทัลสำหรับคนพิเศษ"
+  >
+
+  <meta
+    name="theme-color"
+    content="#09030f"
+  >
+
+
+  <style>
+
+    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Noto+Sans+Thai:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap');
+
+
+    :root{
+
+      --bg:#09030f;
+
+      --white:#fff8fc;
+
+      --soft:
+        rgba(255,248,252,.70);
+
+      --muted:
+        rgba(255,248,252,.45);
+
+      --pink:#ff78b7;
+
+      --pink2:#ffc0df;
+
+      --purple:#a868dc;
+
+      --line:
+        rgba(255,255,255,.14);
+
+    }
+
+
+    *{
+      box-sizing:border-box;
+    }
+
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+
+    body{
+
+      margin:0;
+
+      min-height:100vh;
+
+      color:var(--white);
+
+      background:#09030f;
+
+      font-family:
+        "Noto Sans Thai",
+        "Plus Jakarta Sans",
+        sans-serif;
+
+      -webkit-font-smoothing:
+        antialiased;
+
+    }
+
+
+    /* =========================
+       BACKGROUND
+       ========================= */
+
+    .background{
+
+      position:fixed;
+
+      inset:0;
+
+      z-index:-3;
+
+      overflow:hidden;
+
+      background:#09030f;
+
+    }
+
+
+    .background video{
+
+      width:100%;
+
+      height:100%;
+
+      object-fit:cover;
+
+      object-position:center;
+
+      display:block;
+
+      opacity:.34;
+
+    }
+
+
+    .veil{
+
+      position:fixed;
+
+      inset:0;
+
+      z-index:-2;
+
+      pointer-events:none;
+
+      background:
+
+        radial-gradient(
+          circle at 50% 18%,
+          rgba(255,106,180,.13),
+          transparent 35%
+        ),
+
+        radial-gradient(
+          circle at 18% 75%,
+          rgba(145,66,205,.10),
+          transparent 40%
+        ),
+
+        linear-gradient(
+          to bottom,
+          rgba(4,1,9,.50),
+          rgba(9,3,15,.76) 45%,
+          rgba(9,3,15,.95)
+        );
+
+    }
+
+
+    .glow{
+
+      position:fixed;
+
+      left:50%;
+
+      top:180px;
+
+      width:min(700px,85vw);
+
+      height:300px;
+
+      transform:
+        translateX(-50%);
+
+      border-radius:50%;
+
+      background:
+
+        radial-gradient(
+          ellipse at center,
+          rgba(255,115,184,.14),
+          rgba(159,77,216,.06) 45%,
+          transparent 72%
+        );
+
+      filter:blur(35px);
+
+      z-index:-1;
+
+      pointer-events:none;
+
+    }
+
+
+    /* =========================
+       TOP BAR
+       ========================= */
+
+    .topbar{
+
+      position:fixed;
+
+      top:0;
+
+      left:0;
+
+      right:0;
+
+      z-index:20;
+
+      display:flex;
+
+      align-items:center;
+
+      justify-content:
+        space-between;
+
+      padding:
+        22px
+        28px;
+
+    }
+
+
+    .back{
+
+      display:inline-flex;
+
+      align-items:center;
+
+      justify-content:center;
+
+      gap:9px;
+
+      min-height:48px;
+
+      padding:
+        0
+        18px;
+
+      border:
+        1px solid
+        rgba(255,255,255,.17);
+
+      border-radius:999px;
+
+      background:
+        rgba(8,3,14,.34);
+
+      backdrop-filter:
+        blur(18px);
+
+      -webkit-backdrop-filter:
+        blur(18px);
+
+      color:#fff;
+
+      text-decoration:none;
+
+      font-size:12px;
+
+      transition:
+        transform .3s ease,
+        background .3s ease;
+
+    }
+
+
+    .back:hover{
+
+      transform:
+        translateX(-3px);
+
+      background:
+        rgba(255,255,255,.08);
+
+    }
+
+
+    .top-right{
+
+      display:flex;
+
+      align-items:center;
+
+      gap:14px;
+
+    }
+
+
+    .brand{
+
+      font-family:
+        "Great Vibes",
+        cursive;
+
+      font-size:42px;
+
+      line-height:1;
+
+      color:#fff;
+
+      text-shadow:
+        0 0 15px
+        rgba(255,120,183,.42);
+
+    }
+
+
+    /* =========================
+       LANGUAGE
+       ========================= */
+
+    .language{
+
+      display:flex;
+
+      padding:4px;
+
+      border:
+        1px solid
+        rgba(255,255,255,.17);
+
+      border-radius:999px;
+
+      background:
+        rgba(8,3,14,.34);
+
+      backdrop-filter:
+        blur(18px);
+
+      -webkit-backdrop-filter:
+        blur(18px);
+
+    }
+
+
+    .language button{
+
+      min-width:42px;
+
+      height:36px;
+
+      border:0;
+
+      border-radius:999px;
+
+      background:transparent;
+
+      color:
+        rgba(255,255,255,.50);
+
+      cursor:pointer;
+
+      font-family:
+        "Plus Jakarta Sans",
+        sans-serif;
+
+      font-size:10px;
+
+      font-weight:500;
+
+      letter-spacing:.08em;
+
+      transition:.25s ease;
+
+    }
+
+
+    .language button.active{
+
+      color:#fff;
+
+      background:
+        rgba(255,120,183,.18);
+
+    }
+
+
+    /* =========================
+       REVIEWS
+       ========================= */
+
+    .reviews{
+
+      width:
+        min(920px,90vw);
+
+      margin:
+        0 auto;
+
+      padding:
+        145px
+        0
+        100px;
+
+      text-align:center;
+
+    }
+
+
+    .eyebrow{
+
+      font-family:
+        "Plus Jakarta Sans",
+        sans-serif;
+
+      font-size:10px;
+
+      font-weight:500;
+
+      letter-spacing:.36em;
+
+      text-transform:uppercase;
+
+      color:
+        rgba(255,255,255,.48);
+
+      margin-bottom:18px;
+
+    }
+
+
+    .title{
+
+      margin:0;
+
+      font-size:
+        clamp(35px,5vw,55px);
+
+      font-weight:400;
+
+      line-height:1.4;
+
+      letter-spacing:-.025em;
+
+    }
+
+
+    .title-highlight{
+
+      display:block;
+
+      margin-top:8px;
+
+      color:#fff;
+
+    }
+
+
+    .subtitle{
+
+      max-width:620px;
+
+      margin:
+        18px auto
+        0;
+
+      color:var(--soft);
+
+      font-size:14px;
+
+      font-weight:300;
+
+      line-height:1.9;
+
+    }
+
+
+    .divider{
+
+      width:70px;
+
+      height:1px;
+
+      margin:
+        35px auto
+        46px;
+
+      background:
+
+        linear-gradient(
+          to right,
+          transparent,
+          rgba(255,120,183,.85),
+          transparent
+        );
+
+    }
+
+
+    /* =========================
+       EMPTY STATE
+       ========================= */
+
+    .empty-card{
+
+      position:relative;
+
+      max-width:650px;
+
+      margin:
+        0 auto;
+
+      padding:
+        55px
+        38px;
+
+      border:
+        1px solid
+        rgba(255,184,220,.18);
+
+      border-radius:32px;
+
+      background:
+
+        linear-gradient(
+          145deg,
+          rgba(255,120,183,.07),
+          rgba(122,57,180,.04)
+        );
+
+      backdrop-filter:
+        blur(18px);
+
+      -webkit-backdrop-filter:
+        blur(18px);
+
+      box-shadow:
+        0 28px 90px
+        rgba(0,0,0,.20);
+
+      overflow:hidden;
+
+    }
+
+
+    .empty-card::before{
+
+      content:"";
+
+      position:absolute;
+
+      left:50%;
+
+      top:0;
+
+      width:320px;
+
+      height:160px;
+
+      transform:
+        translate(-50%,-55%);
+
+      background:
+
+        radial-gradient(
+          ellipse at center,
+          rgba(255,107,181,.15),
+          transparent 70%
+        );
+
+      filter:blur(20px);
+
+      pointer-events:none;
+
+    }
+
+
+    .heart{
+
+      font-size:28px;
+
+      color:var(--pink2);
+
+      text-shadow:
+        0 0 18px
+        rgba(255,120,183,.6);
+
+    }
+
+
+    .empty-title{
+
+      margin:
+        17px 0
+        10px;
+
+      font-size:
+        clamp(19px,2.5vw,24px);
+
+      font-weight:500;
+
+      color:#fff;
+
+    }
+
+
+    .empty-text{
+
+      max-width:470px;
+
+      margin:
+        0 auto;
+
+      color:var(--soft);
+
+      font-size:14px;
+
+      font-weight:300;
+
+      line-height:1.9;
+
+    }
+
+
+    /* =========================
+       BUTTON
+       ========================= */
+
+    .gift-button{
+
+      display:inline-flex;
+
+      align-items:center;
+
+      justify-content:center;
+
+      margin-top:32px;
+
+      min-height:48px;
+
+      padding:
+        0
+        25px;
+
+      border:
+        1px solid
+        rgba(255,190,220,.38);
+
+      border-radius:999px;
+
+      background:
+
+        linear-gradient(
+          135deg,
+          rgba(255,120,183,.20),
+          rgba(150,70,220,.14)
+        );
+
+      color:#fff;
+
+      text-decoration:none;
+
+      font-size:12px;
+
+      font-weight:400;
+
+      transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+
+    }
+
+
+    .gift-button:hover{
+
+      transform:
+        translateY(-3px);
+
+      box-shadow:
+        0 15px 45px
+        rgba(255,100,180,.16);
+
+    }
+
+
+    /* =========================
+       FUTURE REVIEWS
+       ========================= */
+
+    .reviews-grid{
+
+      display:none;
+
+      grid-template-columns:
+        repeat(
+          2,
+          minmax(0,1fr)
+        );
+
+      gap:18px;
+
+      margin-top:35px;
+
+      text-align:left;
+
+    }
+
+
+    .review-card{
+
+      padding:25px;
+
+      border:
+        1px solid
+        rgba(255,255,255,.12);
+
+      border-radius:24px;
+
+      background:
+        rgba(14,6,22,.44);
+
+      backdrop-filter:
+        blur(15px);
+
+    }
+
+
+    .stars{
+
+      color:#ffc5e1;
+
+      letter-spacing:.10em;
+
+      font-size:13px;
+
+    }
+
+
+    .review-message{
+
+      margin:
+        17px 0
+        20px;
+
+      color:#fff;
+
+      font-size:14px;
+
+      line-height:1.8;
+
+    }
+
+
+    .review-name{
+
+      color:var(--soft);
+
+      font-size:12px;
+
+    }
+
+
+    /* =========================
+       MOBILE
+       ========================= */
+
+    @media(max-width:700px){
+
+      .topbar{
+        padding:16px;
+      }
+
+
+      .brand{
+        display:none;
+      }
+
+
+      .back{
+
+        min-height:43px;
+
+        padding:
+          0
+          14px;
+
+        font-size:10.5px;
+
+      }
+
+
+      .language button{
+
+        min-width:38px;
+
+        height:33px;
+
+        font-size:9px;
+
+      }
+
+
+      .reviews{
+
+        width:88vw;
+
+        padding-top:115px;
+
+        padding-bottom:65px;
+
+      }
+
+
+      .eyebrow{
+
+        font-size:9px;
+
+        letter-spacing:.30em;
+
+      }
+
+
+      .title{
+
+        font-size:
+          clamp(29px,9vw,39px);
+
+      }
+
+
+      .subtitle{
+
+        font-size:13px;
+
+      }
+
+
+      .divider{
+
+        margin:
+          28px auto
+          34px;
+
+      }
+
+
+      .empty-card{
+
+        padding:
+          40px
+          22px;
+
+        border-radius:25px;
+
+      }
+
+
+      .empty-text{
+
+        font-size:13px;
+
+      }
+
+
+      .reviews-grid{
+
+        grid-template-columns:1fr;
+
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <!-- BACKGROUND -->
+
+  <div class="background">
+
+    <video
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="auto"
+      poster="memora-waterfall.png"
+      aria-hidden="true"
+    >
+
+      <source
+        src="memora-waterfall.mp4"
+        type="video/mp4"
+      >
+
+    </video>
+
+  </div>
+
+
+  <div class="veil"></div>
+
+  <div class="glow"></div>
+
+
+  <!-- TOP BAR -->
+
+  <header class="topbar">
+
+    <a
+      class="back"
+      href="index.html"
+    >
+
+      ←
+
+      <span data-i18n="back">
+        หน้าแรก
+      </span>
+
+    </a>
+
+
+    <div class="top-right">
+
+      <div class="language">
+
+        <button
+          class="active"
+          data-lang="th"
+        >
+          TH
+        </button>
+
+        <button
+          data-lang="en"
+        >
+          EN
+        </button>
+
+      </div>
+
+
+      <div class="brand">
+        Memora
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- REVIEWS -->
+
+  <main class="reviews">
+
+
+    <div
+      class="eyebrow"
+      data-i18n="eyebrow"
+    >
+      LOVE NOTES
+    </div>
+
+
+    <h1 class="title">
+
+      <span data-i18n="title1">
+        ความรู้สึกจาก
+      </span>
+
+      <span
+        class="title-highlight"
+        data-i18n="title2"
+      >
+        คนที่ได้รับ Memora
+      </span>
+
+    </h1>
+
+
+    <p
+      class="subtitle"
+      data-i18n="subtitle"
+    >
+      ทุกความทรงจำมีเรื่องราวของมัน และนี่คือพื้นที่สำหรับความรู้สึกเล็ก ๆ จากคนที่ให้ Memora เป็นส่วนหนึ่งของวันพิเศษ
+    </p>
+
+
+    <div class="divider"></div>
+
+
+    <!-- ตอนนี้ยังไม่มีรีวิวจริง -->
+
+    <section class="empty-card">
+
+      <div class="heart">
+        ♡
+      </div>
+
+
+      <h2
+        class="empty-title"
+        data-i18n="emptyTitle"
+      >
+        เรื่องราวแรกกำลังรออยู่
+      </h2>
+
+
+      <p
+        class="empty-text"
+        data-i18n="emptyText"
+      >
+        รีวิวจากลูกค้าของ Memora จะถูกเก็บไว้ตรงนี้ เมื่อมีความทรงจำแรกเกิดขึ้น เราจะนำมาแบ่งปันให้คุณได้อ่าน
+      </p>
+
+
+      <a
+        class="gift-button"
+        href="products.html"
+        data-i18n="giftButton"
+      >
+        ดูของขวัญของ Memora
+      </a>
+
+    </section>
+
+
+    <!--
+      ตรงนี้เตรียมไว้สำหรับรีวิวจริงในอนาคต
+      ยังซ่อนไว้ด้วย display:none
+    -->
+
+    <section class="reviews-grid">
+
+      <article class="review-card">
+
+        <div class="stars">
+          ★★★★★
+        </div>
+
+        <p class="review-message">
+          รีวิวลูกค้าจะอยู่ตรงนี้
+        </p>
+
+        <div class="review-name">
+          ชื่อลูกค้า
+        </div>
+
+      </article>
+
+    </section>
+
+
+  </main>
+
+
+  <!-- LANGUAGE -->
+
+  <script>
+
+    "use strict";
+
+
+    const translations = {
+
+      th:{
+
+        back:
+          "หน้าแรก",
+
+        eyebrow:
+          "LOVE NOTES",
+
+        title1:
+          "ความรู้สึกจาก",
+
+        title2:
+          "คนที่ได้รับ Memora",
+
+        subtitle:
+          "ทุกความทรงจำมีเรื่องราวของมัน และนี่คือพื้นที่สำหรับความรู้สึกเล็ก ๆ จากคนที่ให้ Memora เป็นส่วนหนึ่งของวันพิเศษ",
+
+        emptyTitle:
+          "เรื่องราวแรกกำลังรออยู่",
+
+        emptyText:
+          "รีวิวจากลูกค้าของ Memora จะถูกเก็บไว้ตรงนี้ เมื่อมีความทรงจำแรกเกิดขึ้น เราจะนำมาแบ่งปันให้คุณได้อ่าน",
+
+        giftButton:
+          "ดูของขวัญของ Memora"
+
+      },
+
+
+      en:{
+
+        back:
+          "Home",
+
+        eyebrow:
+          "LOVE NOTES",
+
+        title1:
+          "Words from",
+
+        title2:
+          "people who received Memora",
+
+        subtitle:
+          "Every memory has a story. This is a little space for the feelings shared by people who made Memora part of a special moment.",
+
+        emptyTitle:
+          "The first story is waiting",
+
+        emptyText:
+          "Customer reviews will live here. When the first Memora story arrives, we will share it here for you to read.",
+
+        giftButton:
+          "Explore Memora gifts"
+
+      }
+
+    };
+
+
+    function setLanguage(code){
+
+      const language =
+        translations[code]
+        ? code
+        : "th";
+
+
+      const t =
+        translations[language];
+
+
+      document.documentElement.lang =
+        language;
+
+
+      document
+        .querySelectorAll(
+          "[data-i18n]"
+        )
+        .forEach(element=>{
+
+          const key =
+            element.dataset.i18n;
+
+          if(t[key]){
+
+            element.textContent =
+              t[key];
+
+          }
+
+        });
+
+
+      document
+        .querySelectorAll(
+          "[data-lang]"
+        )
+        .forEach(button=>{
+
+          button.classList.toggle(
+            "active",
+            button.dataset.lang === language
+          );
+
+        });
+
+
+      localStorage.setItem(
+        "memora-language",
+        language
+      );
+
+    }
+
+
+    document
+      .querySelectorAll(
+        "[data-lang]"
+      )
+      .forEach(button=>{
+
+        button.addEventListener(
+          "click",
+          ()=>{
+
+            setLanguage(
+              button.dataset.lang
+            );
+
+          }
+        );
+
+      });
+
+
+    setLanguage(
+      localStorage.getItem(
+        "memora-language"
+      ) || "th"
+    );
+
+  </script>
+
+
+</body>
+
+</html>
