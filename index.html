@@ -1216,86 +1216,49 @@ content="เปลี่ยนความทรงจำให้กลาย�
   </div>
 
 
- <nav class="nav">
+<nav class="nav">
 
-<a
-class="nav-link"
-href="#"
-data-route="home"
-
-
-
-<small>01</small>
-
-<span data-i18n="home">หน้าแรก</span>
-
+  <a
+    class="nav-link"
+    href="index.html"
+  >
+    <small>01</small>
+    <span data-i18n="home">หน้าแรก</span>
   </a>
 
-<a
-class="nav-link"
-href="#about"
-data-route="about"
-
-
-
-<small>02</small>
-
-<span data-i18n="about">เกี่ยวกับ Memora</span>
-
+  <a
+    class="nav-link"
+    href="about.html"
+  >
+    <small>02</small>
+    <span data-i18n="about">เกี่ยวกับ Memora</span>
   </a>
 
-<a
-  class="nav-link"
-  href="products.html"
->
-
-<small>03</small>
-
-<span data-i18n="products">ของขวัญ</span>
-
+  <a
+    class="nav-link"
+    href="products.html"
+  >
+    <small>03</small>
+    <span data-i18n="products">ของขวัญ</span>
   </a>
 
-<a
-class="nav-link"
-href="#reviews"
-data-route="reviews"
-
-
-
-<small>04</small>
-
-<span data-i18n="reviews">รีวิว</span>
-
+  <a
+    class="nav-link"
+    href="reviews.html"
+  >
+    <small>04</small>
+    <span data-i18n="reviews">รีวิว</span>
   </a>
 
-<a
-class="nav-link"
-href="#faq"
-data-route="faq"
-
-
-
-<small>05</small>
-
-<span data-i18n="faq">คำถามที่พบบ่อย</span>
-
+  <a
+    class="nav-link"
+    href="faq.html"
+  >
+    <small>05</small>
+    <span data-i18n="faq">คำถามที่พบบ่อย</span>
   </a>
 
 </nav>
-
-  <div class="menu-footer">
-    EVERY MOMENT, FOREVER MEMORABLE
-  </div>
-
-</aside>
-
-  </div>
-
-  <div
-    class="flash"
-    id="flash"
-  ></div>
-
   <!-- =========================
        JAVASCRIPT
        ========================= -->
@@ -1624,15 +1587,6 @@ aboutEnding:
     );
 
 
-    function transitionTo(hash){
-
-   const hero =
-  document.querySelector(".hero");
-
-const aboutPage =
-  document.querySelector("#aboutPage");
-
-
 function renderRoute(hash){
 
   const route =
@@ -1702,79 +1656,10 @@ function renderRoute(hash){
 
 
 function transitionTo(hash){
-
-  flash.classList.add("on");
-
-  setTimeout(()=>{
-
-    const target =
-      hash || "";
-
-    if(target){
-
-      history.pushState(
-        {},
-        "",
-        target
-      );
-
-    }else{
-
-      history.pushState(
-        {},
-        "",
-        location.pathname
-      );
-
-    }
-
-    renderRoute(target);
-
-    flash.classList.remove("on");
-
-  },260);
-
-}
-
-
-renderRoute(location.hash);
-
-
-window.addEventListener(
-  "popstate",
-  ()=>{
-    renderRoute(location.hash);
-  }
-);
   
-  $("#explore").addEventListener(
-  "click",
-  ()=>{
-    window.location.href = "products.html";
-  }
-);
-  
-    document
-      .querySelectorAll("[data-route]")
-      .forEach(link=>{
-
-        link.addEventListener(
-          "click",
-          e=>{
-
-            e.preventDefault();
-
-            hideMenu();
-
-            transitionTo(
-              link.getAttribute("href")
-            );
-
-          }
-        );
-
-      });
-
+    /* =========================
+       CLICK HEART
+       ========================= */
 
     document.addEventListener(
       "pointerdown",
@@ -1787,25 +1672,19 @@ window.addEventListener(
           return;
         }
 
-
         const h =
           document.createElement("span");
-
 
         h.className =
           "click-heart";
 
-
         h.style.left =
           e.clientX + "px";
-
 
         h.style.top =
           e.clientY + "px";
 
-
         document.body.appendChild(h);
-
 
         h.addEventListener(
           "animationend",
