@@ -27,26 +27,11 @@
 
     :root{
       --bg:#09030f;
-
       --white:#fff8fc;
-
-      --soft:
-        rgba(255,248,252,.72);
-
-      --muted:
-        rgba(255,248,252,.48);
-
+      --soft:rgba(255,248,252,.72);
       --pink:#ff78b7;
-
       --pink2:#ffc0df;
-
-      --purple:#a868dc;
-
-      --line:
-        rgba(255,255,255,.14);
-
-      --glass:
-        rgba(12,5,19,.34);
+      --line:rgba(255,255,255,.14);
     }
 
 
@@ -62,11 +47,9 @@
 
     body{
       margin:0;
-
       min-height:100vh;
 
       color:var(--white);
-
       background:#09030f;
 
       font-family:
@@ -74,8 +57,7 @@
         "Plus Jakarta Sans",
         sans-serif;
 
-      -webkit-font-smoothing:
-        antialiased;
+      -webkit-font-smoothing:antialiased;
     }
 
 
@@ -85,9 +67,7 @@
 
     .background{
       position:fixed;
-
       inset:0;
-
       z-index:-3;
 
       overflow:hidden;
@@ -101,7 +81,6 @@
       height:100%;
 
       object-fit:cover;
-
       object-position:center;
 
       display:block;
@@ -112,27 +91,22 @@
 
     .veil{
       position:fixed;
-
       inset:0;
-
       z-index:-2;
 
       pointer-events:none;
 
       background:
-
         radial-gradient(
           circle at 50% 18%,
           rgba(255,106,180,.13),
           transparent 34%
         ),
-
         radial-gradient(
           circle at 18% 70%,
           rgba(146,74,209,.10),
           transparent 38%
         ),
-
         linear-gradient(
           to bottom,
           rgba(4,1,9,.48),
@@ -151,8 +125,7 @@
       width:min(700px,80vw);
       height:300px;
 
-      transform:
-        translateX(-50%);
+      transform:translateX(-50%);
 
       border-radius:50%;
 
@@ -167,7 +140,6 @@
       filter:blur(35px);
 
       z-index:-1;
-
       pointer-events:none;
     }
 
@@ -186,15 +158,10 @@
       z-index:20;
 
       display:flex;
-
       align-items:center;
+      justify-content:space-between;
 
-      justify-content:
-        space-between;
-
-      padding:
-        22px
-        28px;
+      padding:22px 28px;
     }
 
 
@@ -202,16 +169,13 @@
       display:inline-flex;
 
       align-items:center;
-
       justify-content:center;
 
       gap:9px;
 
       min-height:48px;
 
-      padding:
-        0
-        18px;
+      padding:0 18px;
 
       border:
         1px solid
@@ -222,11 +186,8 @@
       background:
         rgba(8,3,14,.34);
 
-      backdrop-filter:
-        blur(18px);
-
-      -webkit-backdrop-filter:
-        blur(18px);
+      backdrop-filter:blur(18px);
+      -webkit-backdrop-filter:blur(18px);
 
       color:#fff;
 
@@ -238,25 +199,29 @@
         sans-serif;
 
       font-size:12px;
-
       font-weight:400;
 
-      transition:
-        transform .3s ease,
-        background .3s ease,
-        border-color .3s ease;
+      transition:.3s ease;
     }
 
 
     .back:hover{
-      transform:
-        translateX(-3px);
+      transform:translateX(-3px);
 
       background:
         rgba(255,255,255,.08);
 
       border-color:
         rgba(255,190,220,.35);
+    }
+
+
+    .top-right{
+      display:flex;
+
+      align-items:center;
+
+      gap:14px;
     }
 
 
@@ -278,15 +243,78 @@
 
 
     /* =========================
+       LANGUAGE
+       ========================= */
+
+    .language{
+      display:flex;
+
+      align-items:center;
+
+      padding:4px;
+
+      border:
+        1px solid
+        rgba(255,255,255,.17);
+
+      border-radius:999px;
+
+      background:
+        rgba(8,3,14,.34);
+
+      backdrop-filter:blur(18px);
+      -webkit-backdrop-filter:blur(18px);
+    }
+
+
+    .language button{
+      min-width:42px;
+      height:36px;
+
+      border:0;
+
+      border-radius:999px;
+
+      background:transparent;
+
+      color:
+        rgba(255,255,255,.55);
+
+      cursor:pointer;
+
+      font-family:
+        "Plus Jakarta Sans",
+        sans-serif;
+
+      font-size:10px;
+      font-weight:500;
+
+      letter-spacing:.08em;
+
+      transition:.25s ease;
+    }
+
+
+    .language button.active{
+      color:#fff;
+
+      background:
+        rgba(255,120,183,.18);
+
+      box-shadow:
+        0 0 18px
+        rgba(255,120,183,.08);
+    }
+
+
+    /* =========================
        ABOUT
        ========================= */
 
     .about{
-      width:
-        min(760px,88vw);
+      width:min(760px,88vw);
 
-      margin:
-        0 auto;
+      margin:0 auto;
 
       padding:
         145px
@@ -303,7 +331,6 @@
         sans-serif;
 
       font-size:10px;
-
       font-weight:500;
 
       letter-spacing:.36em;
@@ -338,6 +365,13 @@
     }
 
 
+    html[lang="en"] .about-title{
+      font-family:
+        "Plus Jakarta Sans",
+        sans-serif;
+    }
+
+
     .memora{
       display:block;
 
@@ -367,7 +401,6 @@
 
     .divider{
       width:70px;
-
       height:1px;
 
       margin:
@@ -411,11 +444,17 @@
     }
 
 
+    html[lang="en"] .copy{
+      font-family:
+        "Plus Jakarta Sans",
+        sans-serif;
+
+      line-height:1.9;
+    }
+
+
     .copy p{
-      margin:
-        0
-        0
-        22px;
+      margin:0 0 22px;
     }
 
 
@@ -446,9 +485,7 @@
       left:50%;
       top:50%;
 
-      width:
-        min(500px,80vw);
-
+      width:min(500px,80vw);
       height:100px;
 
       transform:
@@ -497,11 +534,8 @@
           rgba(120,56,178,.05)
         );
 
-      backdrop-filter:
-        blur(18px);
-
-      -webkit-backdrop-filter:
-        blur(18px);
+      backdrop-filter:blur(18px);
+      -webkit-backdrop-filter:blur(18px);
 
       box-shadow:
         0 26px 80px
@@ -510,10 +544,6 @@
 
 
     .heart{
-      font-family:
-        "Plus Jakarta Sans",
-        sans-serif;
-
       font-size:20px;
 
       color:var(--pink2);
@@ -527,11 +557,6 @@
     .quote p{
       margin:
         13px 0 0;
-
-      font-family:
-        "Noto Sans Thai",
-        "Plus Jakarta Sans",
-        sans-serif;
 
       font-size:
         clamp(18px,2.5vw,24px);
@@ -555,13 +580,7 @@
         45px auto
         0;
 
-      font-family:
-        "Noto Sans Thai",
-        "Plus Jakarta Sans",
-        sans-serif;
-
       font-size:14px;
-
       font-weight:300;
 
       line-height:1.9;
@@ -571,18 +590,25 @@
     }
 
 
-    /* =========================
-       SMALL DECORATION
-       ========================= */
+    .ending p{
+      margin:
+        0 0
+        18px;
+    }
+
+
+    .ending-final{
+      margin-top:28px !important;
+
+      color:
+        rgba(255,248,252,.75);
+    }
+
 
     .spark{
-      display:inline-block;
-
       color:var(--pink2);
 
-      margin:
-        0
-        4px;
+      margin:0 5px;
 
       opacity:.85;
     }
@@ -600,7 +626,7 @@
 
 
       .brand{
-        font-size:35px;
+        display:none;
       }
 
 
@@ -615,11 +641,19 @@
       }
 
 
+      .language button{
+        min-width:38px;
+
+        height:33px;
+
+        font-size:9px;
+      }
+
+
       .about{
         width:88vw;
 
         padding-top:115px;
-
         padding-bottom:65px;
       }
 
@@ -694,17 +728,6 @@
 
     }
 
-
-    @media(prefers-reduced-motion:reduce){
-
-      *,
-      *::before,
-      *::after{
-        transition:none!important;
-      }
-
-    }
-
   </style>
 
 </head>
@@ -754,12 +777,37 @@
       class="back"
       href="index.html"
     >
-      ← หน้าแรก
+      ←
+      <span data-i18n="back">
+        หน้าแรก
+      </span>
     </a>
 
 
-    <div class="brand">
-      Memora
+    <div class="top-right">
+
+      <div class="language">
+
+        <button
+          class="active"
+          data-lang="th"
+        >
+          TH
+        </button>
+
+        <button
+          data-lang="en"
+        >
+          EN
+        </button>
+
+      </div>
+
+
+      <div class="brand">
+        Memora
+      </div>
+
     </div>
 
   </header>
@@ -772,14 +820,19 @@
   <main class="about">
 
 
-    <div class="eyebrow">
+    <div
+      class="eyebrow"
+      data-i18n="eyebrow"
+    >
       OUR STORY
     </div>
 
 
     <h1 class="about-title">
 
-      เกี่ยวกับ
+      <span data-i18n="title">
+        เกี่ยวกับ
+      </span>
 
       <span class="memora">
         Memora
@@ -794,12 +847,12 @@
     <div class="copy">
 
 
-      <p>
+      <p data-i18n="p1">
         เราอยากสร้างของขวัญวันครบรอบที่ให้ความรู้สึกพิเศษมากกว่าเดิม
       </p>
 
 
-      <p>
+      <p data-i18n="p2">
         คุณเคยรู้สึกไหมว่า เวลาจะหาของขวัญให้แฟน
         เราก็มักจะวนกลับไปที่ของเดิม ๆ
         ดอกไม้ ตุ๊กตา น้ำหอม หรือของขวัญที่สวยมาก
@@ -807,29 +860,30 @@
       </p>
 
 
-      <p class="highlight">
+      <p
+        class="highlight"
+        data-i18n="p3"
+      >
         Memora เลยเกิดขึ้นมาเพื่อเป็นอีกหนึ่งตัวเลือกสำหรับคุณ
       </p>
 
 
-      <p>
+      <p data-i18n="p4">
         เราอยากเปลี่ยนความทรงจำของคุณสองคน
         ให้กลายเป็นเว็บไซต์ของขวัญส่วนตัว
         ที่มีเรื่องราวของคุณอยู่ในนั้น
       </p>
 
 
-      <p>
+      <p data-i18n="p5">
         เว็บไซต์ที่คุณสามารถใส่รูปความทรงจำ
-        เขียนข้อความถึงคนพิเศษ
-        เพิ่มเพลงที่มีความหมาย
-        นับวันที่อยู่ด้วยกัน
-        รวมถึงมีกิจกรรมและคำถามเล็ก ๆ
+        เขียนข้อความถึงคนพิเศษ เพิ่มเพลงที่มีความหมาย
+        นับวันที่อยู่ด้วยกัน รวมถึงมีกิจกรรมและคำถามเล็ก ๆ
         ให้คุณกับแฟนได้เล่นด้วยกัน
       </p>
 
 
-      <p>
+      <p data-i18n="p6">
         เราอยากให้ Memora เป็นมากกว่าแค่ของขวัญดิจิทัล
         แต่เป็นพื้นที่เล็ก ๆ
         ที่เก็บเรื่องราวของคุณสองคนเอาไว้ในที่เดียว
@@ -845,37 +899,226 @@
         ♡
       </div>
 
-
-      <p>
+      <p data-i18n="quote">
         “ทั้งหมดนี้ถูกทำขึ้นมาเพื่อฉันจริง ๆ”
       </p>
 
     </div>
 
 
-    <p class="ending">
+    <div class="ending">
 
-      เพราะสำหรับเรา ของขวัญที่พิเศษที่สุด
-      อาจไม่ใช่ของที่แพงที่สุด
+      <p data-i18n="ending1">
+        เพราะสำหรับเรา ของขวัญที่พิเศษที่สุด
+        อาจไม่ใช่ของที่แพงที่สุด
+      </p>
 
-      <br><br>
+      <p data-i18n="ending2">
+        แต่เป็นของขวัญที่ทำให้ใครสักคนรู้สึกว่า
+        ทั้งหมดนี้ถูกสร้างขึ้นมาเพื่อเขาจริง ๆ
+      </p>
 
-      แต่เป็นของขวัญที่ทำให้ใครสักคนรู้สึกว่า
-      ทั้งหมดนี้ถูกสร้างขึ้นมาเพื่อเขาจริง ๆ
+      <p class="ending-final">
 
-      <br><br>
+        <span class="spark">✦</span>
 
-      <span class="spark">✦</span>
+        <span data-i18n="ending3">
+          เว็บไซต์วันครบรอบที่เต็มไปด้วยความทรงจำของคุณสองคน
+        </span>
 
-      เว็บไซต์วันครบรอบที่เต็มไปด้วย
-      ความทรงจำของคุณสองคน
+        <span class="spark">✦</span>
 
-      <span class="spark">✦</span>
+      </p>
 
-    </p>
+    </div>
 
 
   </main>
+
+
+  <!-- =========================
+       LANGUAGE SCRIPT
+       ========================= -->
+
+  <script>
+
+    "use strict";
+
+
+    const translations = {
+
+      th:{
+
+        back:
+          "หน้าแรก",
+
+        eyebrow:
+          "OUR STORY",
+
+        title:
+          "เกี่ยวกับ",
+
+        p1:
+          "เราอยากสร้างของขวัญวันครบรอบที่ให้ความรู้สึกพิเศษมากกว่าเดิม",
+
+        p2:
+          "คุณเคยรู้สึกไหมว่า เวลาจะหาของขวัญให้แฟน เราก็มักจะวนกลับไปที่ของเดิม ๆ ดอกไม้ ตุ๊กตา น้ำหอม หรือของขวัญที่สวยมาก แต่สุดท้ายก็ยังเป็นเพียงสิ่งของชิ้นหนึ่ง",
+
+        p3:
+          "Memora เลยเกิดขึ้นมาเพื่อเป็นอีกหนึ่งตัวเลือกสำหรับคุณ",
+
+        p4:
+          "เราอยากเปลี่ยนความทรงจำของคุณสองคนให้กลายเป็นเว็บไซต์ของขวัญส่วนตัว ที่มีเรื่องราวของคุณอยู่ในนั้น",
+
+        p5:
+          "เว็บไซต์ที่คุณสามารถใส่รูปความทรงจำ เขียนข้อความถึงคนพิเศษ เพิ่มเพลงที่มีความหมาย นับวันที่อยู่ด้วยกัน รวมถึงมีกิจกรรมและคำถามเล็ก ๆ ให้คุณกับแฟนได้เล่นด้วยกัน",
+
+        p6:
+          "เราอยากให้ Memora เป็นมากกว่าแค่ของขวัญดิจิทัล แต่เป็นพื้นที่เล็ก ๆ ที่เก็บเรื่องราวของคุณสองคนเอาไว้ในที่เดียว",
+
+        quote:
+          "“ทั้งหมดนี้ถูกทำขึ้นมาเพื่อฉันจริง ๆ”",
+
+        ending1:
+          "เพราะสำหรับเรา ของขวัญที่พิเศษที่สุด อาจไม่ใช่ของที่แพงที่สุด",
+
+        ending2:
+          "แต่เป็นของขวัญที่ทำให้ใครสักคนรู้สึกว่า ทั้งหมดนี้ถูกสร้างขึ้นมาเพื่อเขาจริง ๆ",
+
+        ending3:
+          "เว็บไซต์วันครบรอบที่เต็มไปด้วยความทรงจำของคุณสองคน"
+
+      },
+
+
+      en:{
+
+        back:
+          "Home",
+
+        eyebrow:
+          "OUR STORY",
+
+        title:
+          "About",
+
+        p1:
+          "We wanted to create an anniversary gift that feels a little more special.",
+
+        p2:
+          "Have you ever tried to find a gift for your partner, only to end up choosing from the same things again and again — flowers, plush toys, perfume, or another beautiful gift that eventually becomes just another object?",
+
+        p3:
+          "That is why we created Memora.",
+
+        p4:
+          "We wanted to turn your memories together into a personal gift website filled with your own story.",
+
+        p5:
+          "A website where you can add your favorite photos, write a letter to someone special, choose a meaningful song, count the days you have shared, and enjoy little questions and activities together.",
+
+        p6:
+          "We want Memora to be more than a digital gift. We want it to be a little place where the story of the two of you can live together.",
+
+        quote:
+          "“All of this was made just for me.”",
+
+        ending1:
+          "For us, the most meaningful gift does not have to be the most expensive one.",
+
+        ending2:
+          "Sometimes, the most special gift is simply the one that makes someone feel that every detail was created just for them.",
+
+        ending3:
+          "An anniversary website filled with memories that belong to the two of you."
+
+      }
+
+    };
+
+
+    function setLanguage(code){
+
+      const language =
+        translations[code]
+        ? code
+        : "th";
+
+
+      const t =
+        translations[language];
+
+
+      document.documentElement.lang =
+        language;
+
+
+      document
+        .querySelectorAll(
+          "[data-i18n]"
+        )
+        .forEach(element=>{
+
+          const key =
+            element.dataset.i18n;
+
+          if(t[key]){
+            element.textContent =
+              t[key];
+          }
+
+        });
+
+
+      document
+        .querySelectorAll(
+          "[data-lang]"
+        )
+        .forEach(button=>{
+
+          button.classList.toggle(
+            "active",
+            button.dataset.lang === language
+          );
+
+        });
+
+
+      localStorage.setItem(
+        "memora-language",
+        language
+      );
+
+    }
+
+
+    document
+      .querySelectorAll(
+        "[data-lang]"
+      )
+      .forEach(button=>{
+
+        button.addEventListener(
+          "click",
+          ()=>{
+
+            setLanguage(
+              button.dataset.lang
+            );
+
+          }
+        );
+
+      });
+
+
+    setLanguage(
+      localStorage.getItem(
+        "memora-language"
+      ) || "th"
+    );
+
+  </script>
 
 
 </body>
